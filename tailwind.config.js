@@ -3,19 +3,17 @@ module.exports = {
   content: ["./app/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
-      // fontFamily: {
-      //   "inter-400": ["InterRegular"],
-      //   "inter-500": ["InterMedium"],
-      //   "inter-600": ["InterSemiBold"],
-      //   "inter-700": ["InterBold"],
-      //   "inter-800": ["InterExtraBold"],
-      //   "inter-900": ["InterBlack"],
-      //   "rubik-700": ["RubikBold"],
-      //   "rubik-800": ["RubikExtraBold"],
-      // },
+      fontFamily: {
+        "montserrat-300": ["montserrat-300"],
+        "montserrat-400": ["montserrat-400"],
+        "montserrat-500": ["montserrat-500"],
+        "montserrat-600": ["montserrat-600"],
+        "montserrat-700": ["montserrat-700"],
+        "montserrat-800": ["montserrat-800"],
+      },
       colors: {
         yellowGreen: "#D6DF22",
-        balckish: "#3E3E3F",
+        blackish: "#3E3E3F",
         gray: "#BCBDC0",
       },
     },
