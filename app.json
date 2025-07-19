@@ -37,6 +37,12 @@
           },
           "imageWidth": 200
         }
+      ],
+      [
+        "expo-calendar",
+        {
+          "calendarPermission": "The app needs to access your calendar."
+        }
       ]
     ],
     "experiments": {
