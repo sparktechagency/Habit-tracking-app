@@ -1,10 +1,10 @@
 import { Stack } from "expo-router";
-import { StatusBar } from "expo-status-bar";
+import { StatusBar } from "react-native";
 
 export default function RootLayout() {
   return (
     <>
-      <StatusBar style="light" />
+      <StatusBar barStyle={"dark-content"} translucent />
       <Stack
         screenOptions={{
           headerShown: false, // Hides header for all screens
@@ -19,12 +19,17 @@ export default function RootLayout() {
         <Stack.Screen
           name="(splash-screen)"
           options={{
-            animation: 'slide_from_right',
             gestureEnabled: false // Disable swipe back on splash screens
           }}
         />
         <Stack.Screen
           name='(auth)'
+          options={{
+            gestureEnabled: false // Disable swipe back on splash screens
+          }}
+        />
+        <Stack.Screen
+          name='(tab)'
           options={{
             animation: 'slide_from_right',
             gestureEnabled: false // Disable swipe back on splash screens
