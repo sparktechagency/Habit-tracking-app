@@ -15,6 +15,8 @@ module.exports = {
         yellowGreen: "#D6DF22",
         blackish: "#3E3E3F",
         gray: "#BCBDC0",
+        blackText: "#000",
+        primaryBg: "#ffffff",
       },
     },
   },
