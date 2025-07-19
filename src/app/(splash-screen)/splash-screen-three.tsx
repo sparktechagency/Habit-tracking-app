@@ -9,7 +9,7 @@ import { SvgXml } from 'react-native-svg'
 export default function SplashScreenThree() {
     return (
         <ImageBackground
-            source={require('@/assets/images/Splash Screen 2.png')}
+            source={require('@/assets/images/Splash Screen 4 (3).png')}
             style={tw`w-full h-full`}
             blurRadius={2}
         >
