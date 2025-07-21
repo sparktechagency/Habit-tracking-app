@@ -1,23 +1,18 @@
+import AllHAbits from '@/src/components/ui/AllHAbits';
+import MyHabits from '@/src/components/ui/MyHabits';
 import SearchHabite from '@/src/components/ui/SearchHabite';
 import { TABS } from '@/src/constants/tabs';
 import tw from '@/src/lib/tailwind';
 import React, { useState } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 
-
-
-
 export default function HabitsScreen() {
     const [activeTab, setActiveTab] = useState<string>('all');
 
-
     return (
         <View style={tw`flex-1 bg-primaryBg`}>
-
-
-
             {/* --------------- top heading --------------- */}
-            <SearchHabite />
+            <SearchHabite title='My Habits' addHeading='Add Habit' />
 
             {/* -------------- tabs -------------------------- */}
             <View style={tw`flex-row mb-2`}>
@@ -27,14 +22,16 @@ export default function HabitsScreen() {
                         <TouchableOpacity
                             key={tab.key}
                             onPress={() => setActiveTab(tab?.key)}
-                            style={tw`flex-1 py-3 items-center border-b-2 ${isActive ? 'border-[#d6df22]' : 'border-transparent'
-                                }`}
+                            style={[
+                                tw`flex-1 py-3 items-center border-b-2`,
+                                isActive ? tw`border-[#d6df22]` : tw`border-transparent`,
+                            ]}
                         >
                             <Text
-                                style={tw`text-sm font-montserrat-400 ${isActive
-                                    ? 'text-[#d6df22] font-montserrat-600'
-                                    : 'text-blackText'
-                                    }`}
+                                style={[
+                                    tw`text-sm font-montserrat-400`,
+                                    isActive ? tw`text-[#d6df22] font-montserrat-600` : tw`text-blackText`,
+                                ]}
                             >
                                 {tab.label}
                             </Text>
@@ -43,8 +40,11 @@ export default function HabitsScreen() {
                 })}
             </View>
 
-            {/* ✅ Placeholder for content */}
-            <View style={tw` `}>
+            {/* Content placeholder */}
+            <View style={tw` flex-1`}>
+                {
+                    activeTab === 'all' ? <AllHAbits /> : <MyHabits />
+                }
 
             </View>
         </View>
