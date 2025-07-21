@@ -1,8 +1,8 @@
 import { IconsLeftArrowBlack } from '@/assets/icons';
-import KeyboardAvoidingComponent from '@/src/components/KeyboardAvoidingComponent ';
+import KeyboardAvoidingComponent from '@/src/components/KeyboardAvoidingComponent';
 import Wrapper from '@/src/components/Wrapper';
 import tw from '@/src/lib/tailwind';
-import { router } from 'expo-router';
+import { Link, router } from 'expo-router';
 import { Formik } from 'formik';
 import React, { useState } from 'react';
 import { Alert, Text, TextInput, TouchableOpacity, View } from 'react-native';
@@ -38,8 +38,8 @@ const LoginScreen = () => {
     return (
         <View style={tw`flex-1 relative bg-blackish `}>
 
-            <KeyboardAvoidingComponent>
-                <Wrapper>
+            <Wrapper>
+                <KeyboardAvoidingComponent>
                     <View style={tw`flex-1 bg-blackish justify-center items-center `}>
                         {/* ----------------- back botton------------------------- */}
                         <View style={tw` absolute  top-14 left-0 `}>
@@ -109,6 +109,14 @@ const LoginScreen = () => {
                                                     </Text>
                                                 </TouchableOpacity>
                                             </View>
+                                            <TouchableOpacity
+                                                style={tw`items-end py-1`}
+                                                onPress={() => router.push('/(auth)/verify-email')}
+                                            >
+                                                <Text style={tw` text-yellowGreen text-base  font-montserrat-700`}>
+                                                    Forget password?
+                                                </Text>
+                                            </TouchableOpacity>
                                             {touched.password && errors.password && (
                                                 <Text style={tw`text-red-500 text-xs mt-1`}>{errors.password}</Text>
                                             )}
@@ -118,7 +126,8 @@ const LoginScreen = () => {
                                         <View style={tw`mb-8`}>
                                             <TouchableOpacity
                                                 style={tw`h-12 bg-yellowGreen rounded-[18px] justify-center items-center mb-4`}
-                                                onPress={() => handleSubmit()}
+                                                // onPress={() => handleSubmit()}
+                                                onPress={() => router.push('/(tab)')}
                                                 disabled={isSubmitting}
                                             >
                                                 <Text style={tw`text-[#3E3E3F] text-[16px]  font-montserrat-700`}>
@@ -126,22 +135,22 @@ const LoginScreen = () => {
                                                 </Text>
                                             </TouchableOpacity>
                                             {/* ------------------------ forget pass ------------------------ */}
-                                            <TouchableOpacity
-                                                style={tw`items-center`}
+                                            {/* <TouchableOpacity
+                                                style={tw`items-end`}
                                                 onPress={() => router.push('/(auth)/verify-email')}
-                                            >
-                                                <Text style={tw` text-yellowGreen text-[16px]  font-montserrat-700`}>
-                                                    Forget password?
-                                                </Text>
-                                            </TouchableOpacity>
+                                            > */}
+
                                         </View>
+                                        <Text style={tw` text-yellowGreen text-base text-center   font-montserrat-400`}>
+                                            You don’t have an account? <Link href={'/(auth)/register'}><Text style={tw` text-yellowGreen text-base  font-montserrat-700`}>Register</Text></Link>
+                                        </Text>
                                     </View>
                                 )}
                             </Formik>
                         </View>
                     </View>
-                </Wrapper>
-            </KeyboardAvoidingComponent>
+                </KeyboardAvoidingComponent>
+            </Wrapper>
         </View>
     );
 };
