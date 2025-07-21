@@ -1,4 +1,4 @@
-package com.anonymous.HabitTracking
+package com.anonymous.DooGoo
 
 import android.app.Application
 import android.content.res.Configuration

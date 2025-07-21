@@ -1,4 +1,4 @@
-package com.anonymous.HabitTracking
+package com.anonymous.DooGoo
 import expo.modules.splashscreen.SplashScreenManager
 
 import android.os.Build
