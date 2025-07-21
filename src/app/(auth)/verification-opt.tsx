@@ -1,5 +1,5 @@
 import { IconsLeftArrowBlack } from '@/assets/icons';
-import KeyboardAvoidingComponent from '@/src/components/KeyboardAvoidingComponent ';
+import KeyboardAvoidingComponent from '@/src/components/KeyboardAvoidingComponent';
 import Wrapper from '@/src/components/Wrapper';
 import tw from '@/src/lib/tailwind';
 import { router } from 'expo-router';
@@ -67,6 +67,19 @@ export default function VerificationScreen() {
                                             accessibilityRole: "text",
                                             accessibilityLabel: "OTP digit",
                                             allowFontScaling: false,
+
+                                        }}
+                                        theme={{
+                                            pinCodeTextStyle: {
+                                                color: '#D6DF22',
+                                                fontSize: 20,
+                                            },
+                                            pinCodeContainerStyle: {
+                                                borderColor: '#D6DF22',
+                                                borderWidth: 1,
+                                                borderRadius: 8,
+                                            }
+
                                         }}
                                     />
                                     {/* -------------- resend ----------- */}
