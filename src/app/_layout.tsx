@@ -31,7 +31,12 @@ export default function RootLayout() {
         <Stack.Screen
           name='(tab)'
           options={{
-            animation: 'slide_from_right',
+            gestureEnabled: false // Disable swipe back on splash screens
+          }}
+        />
+        <Stack.Screen
+          name='view-details'
+          options={{
             gestureEnabled: false // Disable swipe back on splash screens
           }}
         />
