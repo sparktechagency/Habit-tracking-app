@@ -16,3 +16,18 @@ export type JoinChallengeModalProps = {
   modalVisible: boolean;
   setModalVisible: (visible: boolean) => void;
 };
+
+export type Habit = {
+  habitName: string;
+  description: string;
+  goal: string;
+  duration: string;
+  participants: string;
+};
+
+export type AddHabitModalProps = {
+  visible: boolean;
+  onClose: () => void;
+  onSave: (habit: Habit) => void;
+  addHeading?: string;
+};
