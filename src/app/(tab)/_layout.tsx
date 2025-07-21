@@ -31,8 +31,8 @@ export default function TabLayout() {
                     tabBarActiveTintColor: '#000',
 
                     tabBarStyle: {
-                        height: 70,
-                        paddingTop: 10,
+                        height: 60,
+                        paddingTop: 5,
                         paddingBottom: Platform.OS === "ios" ? 25 : 10,
                         alignItems: "center",
                         justifyContent: "center",
@@ -47,7 +47,7 @@ export default function TabLayout() {
                         tabBarIcon: ({ focused }) => (
                             <SvgXml xml={focused ? IconsHabitsActive : IconsHabits} />
                         ),
-                        animation: 'shift'
+                        animation: 'none'
 
                     }}
                 />
@@ -58,7 +58,7 @@ export default function TabLayout() {
                         tabBarIcon: ({ focused }) => (
                             <SvgXml xml={focused ? IconsGroupActive : IconsGroup} />
                         ),
-                        animation: 'shift'
+                        animation: 'none'
                     }}
                 />
                 <Tabs.Screen
@@ -68,7 +68,7 @@ export default function TabLayout() {
                         tabBarIcon: ({ focused }) => (
                             <SvgXml xml={focused ? IconsSayNOActive : IconsSayNO} />
                         ),
-                        animation: 'shift'
+                        animation: 'none'
 
                     }}
                 />
@@ -79,7 +79,7 @@ export default function TabLayout() {
                         tabBarIcon: ({ focused }) => (
                             <SvgXml xml={focused ? IconsRewardsActive : IconsRewards} />
                         ),
-                        animation: 'shift'
+                        animation: 'none'
 
                     }}
                 />
@@ -90,7 +90,7 @@ export default function TabLayout() {
                         tabBarIcon: ({ focused }) => (
                             <SvgXml xml={focused ? IconsProfileActive : IconsProfile} />
                         ),
-                        animation: 'shift'
+                        animation: 'none'
 
                     }}
                 />
