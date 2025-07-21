@@ -1,0 +1,23 @@
+import { Stack } from 'expo-router';
+import React from 'react';
+import { View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+
+export default function DetailsViewLayout() {
+    const { bottom } = useSafeAreaInsets()
+
+    return (
+        <View style={{ flex: 1, paddingBottom: bottom }} >
+            <Stack>
+                <Stack.Screen
+                    name="index"
+                    options={{
+                        animation: 'slide_from_right',
+                        headerShown: false, //
+                    }}
+                />
+
+            </Stack>
+        </View>
+    );
+}
