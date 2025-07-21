@@ -1,19 +1,25 @@
 import { IconsAdd } from '@/assets/icons';
+import { AddGroupProps } from '@/src/constants/type';
 import tw from '@/src/lib/tailwind';
-import React from 'react';
+import React, { useState } from 'react';
 import { Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { SvgXml } from 'react-native-svg';
+import AddHabitModal from './AddHabitModal';
 
-const SearchHabite = () => {
+const SearchHabite = ({ title, addHeading }: AddGroupProps) => {
+
+    const [visible, setVisible] = useState<boolean>(false)
+    const [onSave, setOnSave] = useState<string>("")
+
     return (
-        <View style={tw` flex-col gap-3 p-[4%]`}>
+        <View style={tw` flex-col gap-3  px-[4%] pt-[3%]`}>
             {/* Header Section */}
             <View style={tw``}>
                 <View style={tw`flex-row items-center justify-between `}>
                     <Text style={tw`text-blackish font-montserrat-600 text-xl`}>
-                        My Habits
+                        {title}
                     </Text>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => setVisible(!visible)} >
                         <SvgXml xml={IconsAdd} />
                     </TouchableOpacity>
                 </View>
@@ -36,6 +42,8 @@ const SearchHabite = () => {
             {/* Content Section */}
             <View style={tw`px-4`}>
                 {/* Your habit list/content will go here */}
+
+                <AddHabitModal addHeading={addHeading} visible={visible} onClose={() => setVisible(!visible)} onSave={() => setOnSave} />
             </View>
         </View>
     );
