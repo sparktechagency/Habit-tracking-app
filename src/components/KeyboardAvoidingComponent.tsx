@@ -10,7 +10,7 @@ const KeyboardAvoidingComponent = ({ children }: Props) => {
     return (
         <KeyboardAvoidingView
             behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-            style={tw`flex-1`}
+            style={{ flex: 1 }}
         >
             <View style={tw`flex-1`}>
                 {children}
