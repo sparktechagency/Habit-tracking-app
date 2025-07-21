@@ -1,4 +1,4 @@
-import KeyboardAvoidingComponent from '@/src/components/KeyboardAvoidingComponent ';
+import KeyboardAvoidingComponent from '@/src/components/KeyboardAvoidingComponent';
 import BackButton from '@/src/components/ui/BackButton';
 import Wrapper from '@/src/components/Wrapper';
 import tw from '@/src/lib/tailwind';
