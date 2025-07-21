@@ -12,18 +12,20 @@ export default function Home() {
   useEffect(() => {
     try {
       Font.loadAsync({
-        'montserrat-800': require('@/assets/fonts/Montserrat-Black.ttf'),
-        'montserrat-700': require('@/assets/fonts/Montserrat-Bold.ttf'),
-        'montserrat-600': require('@/assets/fonts/Montserrat-SemiBold.ttf'),
-        'montserrat-500': require('@/assets/fonts/Montserrat-Medium.ttf'),
-        'montserrat-400': require('@/assets/fonts/Montserrat-Regular.ttf'),
-        'montserrat-300': require('@/assets/fonts/Montserrat-Light.ttf'),
+        montserratBlack: require('@/assets/fonts/Montserrat-Black.ttf'),
+        montserratBold: require('@/assets/fonts/Montserrat-Bold.ttf'),
+        montserratSemiBold: require('@/assets/fonts/Montserrat-SemiBold.ttf'),
+        montserratMedium: require('@/assets/fonts/Montserrat-Medium.ttf'),
+        montserratRegular: require('@/assets/fonts/Montserrat-Regular.ttf'),
+        montserratLight: require('@/assets/fonts/Montserrat-Light.ttf'),
       });
+
 
       // Small delay for smooth transition
       setTimeout(() => {
         SplashScreen.hideAsync();
-        router?.replace('/(splash-screen)');
+        // router?.replace('/(splash-screen)');
+        router?.replace('/(tab)');
       }, 800);
     } catch (e) {
       console.warn('Font loading failed:', e);
