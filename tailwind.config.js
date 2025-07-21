@@ -4,12 +4,12 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        "montserrat-300": ["montserrat-300"],
-        "montserrat-400": ["montserrat-400"],
-        "montserrat-500": ["montserrat-500"],
-        "montserrat-600": ["montserrat-600"],
-        "montserrat-700": ["montserrat-700"],
-        "montserrat-800": ["montserrat-800"],
+        "montserrat-300": ["montserratLight"],
+        "montserrat-400": ["montserratRegular"],
+        "montserrat-500": ["montserratMedium"],
+        "montserrat-600": [" montserratSemiBold"],
+        "montserrat-700": ["montserratBold"],
+        "montserrat-800": ["montserratBlack"],
       },
       colors: {
         yellowGreen: "#D6DF22",
