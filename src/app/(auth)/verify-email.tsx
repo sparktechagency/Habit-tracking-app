@@ -1,5 +1,5 @@
 import { IconsLeftArrowBlack } from '@/assets/icons';
-import KeyboardAvoidingComponent from '@/src/components/KeyboardAvoidingComponent ';
+import KeyboardAvoidingComponent from '@/src/components/KeyboardAvoidingComponent';
 import Wrapper from '@/src/components/Wrapper';
 import tw from '@/src/lib/tailwind';
 import { router } from 'expo-router';
