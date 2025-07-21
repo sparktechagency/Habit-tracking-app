@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "Habit Tracking",
-    "slug": "Habit Tracking",
+    "name": "DooGoo",
+    "slug": "DooGoo",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/splash-icon.png",
-    "scheme": "habittracking",
+    "scheme": "doogoo",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
@@ -17,7 +17,7 @@
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.anonymous.HabitTracking"
+      "package": "com.anonymous.DooGoo"
     },
     "web": {
       "bundler": "metro",
@@ -36,12 +36,6 @@
             "backgroundColor": "#D6DF21"
           },
           "imageWidth": 200
-        }
-      ],
-      [
-        "expo-calendar",
-        {
-          "calendarPermission": "The app needs to access your calendar."
         }
       ]
     ],
