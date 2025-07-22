@@ -36,7 +36,7 @@ const JoinChallengeModal = ({ modalVisible, setModalVisible }: JoinChallengeModa
 
                         <View style={tw`flex-col gap-2 `}>
                             {/* Challenge Title */}
-                            <Text style={tw`text-blackish text-sm font-montserrat-500 `}>
+                            <Text style={tw`text-blackish text-sm font-montserrat-600 `}>
                                 30-Day Fitness Challenge
                             </Text>
 
@@ -54,11 +54,11 @@ const JoinChallengeModal = ({ modalVisible, setModalVisible }: JoinChallengeModa
                     <View style={tw`flex-col  gap-4`}>
                         {/* Today's Tasks Header */}
                         <View style={tw`flex-row  gap-2`}>
-                            <Text style={tw`text-blackish text-base font-semibold font-montserrat`}>
+                            <Text style={tw`text-blackish text-base font-semibold font-montserrat-700`}>
                                 Today's Tasks
                             </Text>
                             <View style={tw`bg-zinc-600 rounded px-2 py-1`}>
-                                <Text style={tw`text-white text-[10px] font-semibold font-montserrat`}>
+                                <Text style={tw`text-white text-[10px] font-semibold font-montserrat-600`}>
                                     15 points
                                 </Text>
                             </View>
@@ -93,7 +93,7 @@ const JoinChallengeModal = ({ modalVisible, setModalVisible }: JoinChallengeModa
                             </View>
 
                             {/* Challenge Details */}
-                            <Text style={tw`text-blackish text-base font-semibold font-montserrat mt-4 mb-1`}>
+                            <Text style={tw`text-blackish text-base font-semibold font-montserrat-600 mt-4 mb-1`}>
                                 Challenge Details
                             </Text>
                             <Text style={tw`text-blackish text-[10px] `}>
@@ -107,12 +107,12 @@ const JoinChallengeModal = ({ modalVisible, setModalVisible }: JoinChallengeModa
                     {/* Buttons */}
                     <View style={tw`flex-row justify-around `}>
                         <TouchableOpacity style={tw`bg-zinc-300 rounded px-6 py-2`}>
-                            <Text style={tw`text-neutral-500 text-sm font-semibold font-montserrat`}>
+                            <Text style={tw`text-neutral-500 text-sm font-semibold font-montserrat-600`}>
                                 Leave Challenge
                             </Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={tw`bg-blackish rounded px-6 py-2`}>
-                            <Text style={tw`text-white text-sm font-semibold font-montserrat`}>
+                            <Text style={tw`text-white text-sm font-semibold font-montserrat-600`}>
                                 Mark as Complete
                             </Text>
                         </TouchableOpacity>
