@@ -30,7 +30,7 @@ const DailyCompletionRatesChart = () => {
                 ].map((item, index) => (
                     <View key={index} style={tw`flex-row gap-1 items-center mr-2 mb-2`}>
                         <View style={[tw`w-3 h-3 `, { backgroundColor: item.color }]} />
-                        <Text style={tw`text-gray-700 text-xs`}>{item.label}</Text>
+                        <Text style={tw`text-gray text-xs`}>{item.label}</Text>
                     </View>
                 ))}
             </View>
