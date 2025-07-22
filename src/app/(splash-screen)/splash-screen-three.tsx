@@ -41,7 +41,7 @@ export default function SplashScreenThree() {
                                     onPress={() => router.push('/(auth)')}
                                 >
                                     <Text style={tw`text-blackish  text-base font-montserrat-700 `}>
-                                        Get Started
+                                        Claim Your Reward
                                     </Text>
                                     <SvgXml xml={IconsRightArrowBlack} />
                                 </TouchableOpacity>

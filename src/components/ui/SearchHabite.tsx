@@ -11,6 +11,7 @@ const SearchHabite = ({ title, addHeading }: AddGroupProps) => {
     const [visible, setVisible] = useState<boolean>(false)
     const [onSave, setOnSave] = useState<string>("")
 
+    const hiddednAdded = addHeading === "Rewards";
     return (
         <View style={tw` flex-col gap-3  px-[4%] pt-[3%]`}>
             {/* Header Section */}
@@ -19,9 +20,12 @@ const SearchHabite = ({ title, addHeading }: AddGroupProps) => {
                     <Text style={tw`text-blackish font-montserrat-600 text-xl`}>
                         {title}
                     </Text>
-                    <TouchableOpacity onPress={() => setVisible(!visible)} >
-                        <SvgXml xml={IconsAdd} />
-                    </TouchableOpacity>
+
+                    {
+                        !hiddednAdded && <TouchableOpacity onPress={() => setVisible(!visible)} >
+                            <SvgXml xml={IconsAdd} />
+                        </TouchableOpacity>
+                    }
                 </View>
             </View>
 
@@ -39,12 +43,9 @@ const SearchHabite = ({ title, addHeading }: AddGroupProps) => {
                 />
             </View>
 
-            {/* Content Section */}
-            <View style={tw`px-4`}>
-                {/* Your habit list/content will go here */}
 
-                <AddHabitModal addHeading={addHeading} visible={visible} onClose={() => setVisible(!visible)} onSave={() => setOnSave} />
-            </View>
+            <AddHabitModal addHeading={addHeading} visible={visible} onClose={() => setVisible(!visible)} onSave={() => setOnSave(onSave)} />
+
         </View>
     );
 };

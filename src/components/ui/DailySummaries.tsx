@@ -1,7 +1,8 @@
 import { IconsGreenTick, IconsRounded } from '@/assets/icons';
 import tw from '@/src/lib/tailwind';
+import { router } from 'expo-router';
 import React from 'react';
-import { ScrollView, Text, View } from 'react-native';
+import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { SvgXml } from 'react-native-svg';
 
 const DailySummaries = () => {
@@ -70,6 +71,13 @@ const DailySummaries = () => {
                             </View>
                         </View>
                     </View>
+                    {/* Save button */}
+                    <TouchableOpacity
+                        style={tw`bg-blackish px-3 py-1.5 rounded self-end mt-1`}
+                        onPress={() => router.push('/group-completion')}
+                    >
+                        <Text style={tw`text-white  font-montserrat-400 text-sm`}>See more</Text>
+                    </TouchableOpacity>
                 </View>
             ))}
         </ScrollView>

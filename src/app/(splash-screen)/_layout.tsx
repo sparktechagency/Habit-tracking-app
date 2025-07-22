@@ -17,6 +17,7 @@ export default function SplashScreenRootLayout() {
                 <Stack.Screen name="splash-screen-one" options={{ animation: 'slide_from_right' }} />
                 <Stack.Screen name="splash-screen-tow" options={{ animation: 'slide_from_right' }} />
                 <Stack.Screen name="splash-screen-three" options={{ animation: 'slide_from_right' }} />
+                <Stack.Screen name="role-screen" options={{ animation: 'slide_from_right' }} />
                 {/* Add other screens here */}
             </Stack>
         </View>

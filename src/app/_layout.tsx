@@ -40,6 +40,18 @@ export default function RootLayout() {
             gestureEnabled: false // Disable swipe back on splash screens
           }}
         />
+        <Stack.Screen
+          name='payment-procedure'
+          options={{
+            gestureEnabled: false // Disable swipe back on splash screens
+          }}
+        />
+        <Stack.Screen
+          name='group-completion'
+          options={{
+            gestureEnabled: false // Disable swipe back on splash screens
+          }}
+        />
 
 
         {/* Add more groups as needed */}

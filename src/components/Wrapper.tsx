@@ -1,28 +1,25 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const Wrapper = ({ children }: { children: React.ReactNode }) => {
 
-    return (
-        <SafeAreaView
-            style={[
-                styles.safeView,
+    const { bottom } = useSafeAreaInsets();
 
-            ]}
+    return (
+        <View
+            style={{ flex: 1 }}
         >
             <View style={styles.container}>{children}</View>
-        </SafeAreaView>
+        </View>
     );
 };
 
 const styles = StyleSheet.create({
-    safeView: {
-        flex: 1,
-    },
+
     container: {
         flex: 1,
-        paddingHorizontal: 20,
+        paddingHorizontal: 16,
     },
 });
 

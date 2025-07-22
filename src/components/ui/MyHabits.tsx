@@ -12,7 +12,7 @@ const MyHabits = () => {
             paddingTop: 10
         }} >
             {[9, 8, 7, 6, 5, 4, 3].map((item) => (
-                <View key={item} style={tw`bg-white rounded-lg p-3 shadow-md mb-4`} >
+                <View key={item} style={tw`bg-white border-l-4 border-[#BCBDC0] rounded-lg p-3 shadow-md mb-4`} >
 
                     <View style={tw`flex-col gap-2`}>
                         {/* // TODO */}

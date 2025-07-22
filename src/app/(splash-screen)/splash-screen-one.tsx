@@ -40,7 +40,7 @@ export default function SplashScreenOne() {
                                     onPress={() => router.push('/(splash-screen)/splash-screen-tow')}
                                 >
                                     <Text style={tw`text-blackish  text-base font-montserrat-700 `}>
-                                        Get Started
+                                        Start Building
                                     </Text>
                                     <SvgXml xml={IconsRightArrowBlack} />
                                 </TouchableOpacity>

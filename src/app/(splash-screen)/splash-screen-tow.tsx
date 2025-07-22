@@ -41,7 +41,7 @@ export default function SplashScreenTow() {
                                     onPress={() => router.push('/(splash-screen)/splash-screen-three')}
                                 >
                                     <Text style={tw`text-blackish  text-base font-montserrat-700 `}>
-                                        Get Started
+                                        Join a Challenge
                                     </Text>
                                     <SvgXml xml={IconsRightArrowBlack} />
                                 </TouchableOpacity>

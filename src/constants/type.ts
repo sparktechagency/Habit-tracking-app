@@ -31,3 +31,13 @@ export type AddHabitModalProps = {
   onSave: (habit: Habit) => void;
   addHeading?: string;
 };
+export type AddSayHabitModalProps = {
+  visible: boolean;
+  onClose: () => void;
+  // onSave: (habit: Habit) => void;
+  // addHeading?: string;
+};
+export type RedeemModalProps = {
+  viewModal: boolean;
+  setViewModal: (viewModal: boolean) => void;
+};
