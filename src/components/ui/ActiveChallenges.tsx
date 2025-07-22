@@ -1,7 +1,7 @@
 import tw from '@/src/lib/tailwind'
 import { router } from 'expo-router'
 import React, { useState } from 'react'
-import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native'
 import JoinChallengeModal from './JoinChallengeModal'
 import ProgressBar from './ProgressBar'
 
@@ -75,19 +75,5 @@ const ActiveChallenges = () => {
     )
 }
 
-const styles = StyleSheet.create({
-    shadowBox: {
-        backgroundColor: 'white',
-        borderRadius: 10,
-        padding: 12,
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.25,
-        shadowRadius: 4,
-        elevation: 3,
-        marginBottom: 16,
-    },
-
-});
 
 export default ActiveChallenges
