@@ -38,7 +38,7 @@ const OverallProgressCard = () => {
                     <View style={tw`flex-col justify-between  gap-1 `}>
                         <View>
                             {/* Subtext */}
-                            <Text style={tw`text-gray-700 text-sm font-montserrat-400`}>
+                            <Text style={tw`text-gray text-sm font-montserrat-400`}>
                                 Completion rate across all tasks
                             </Text>
                         </View>
@@ -79,7 +79,7 @@ const OverallProgressCard = () => {
                     <View style={tw`flex-col justify-between  gap-1 `}>
                         <View>
                             {/* Subtext */}
-                            <Text style={tw`text-gray-700 text-sm font-montserrat-400`}>
+                            <Text style={tw`text-gray text-sm font-montserrat-400`}>
                                 of 100 day challenge
                             </Text>
                         </View>
@@ -120,7 +120,7 @@ const OverallProgressCard = () => {
                     <View style={tw`flex-col justify-between  gap-1 `}>
                         <View>
                             {/* Subtext */}
-                            <Text style={tw`text-gray-700 text-sm font-montserrat-400`}>
+                            <Text style={tw`text-gray text-sm font-montserrat-400`}>
                                 of 100 day challenge
                             </Text>
                         </View>
@@ -160,7 +160,7 @@ const OverallProgressCard = () => {
                     <View style={tw`flex-col justify-between  gap-1 `}>
                         <View>
                             {/* Subtext */}
-                            <Text style={tw`text-gray-700 text-sm font-montserrat-400`}>
+                            <Text style={tw`text-gray text-sm font-montserrat-400`}>
                                 of 100 day challenge
                             </Text>
                         </View>
