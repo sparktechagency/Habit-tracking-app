@@ -41,3 +41,13 @@ export type RedeemModalProps = {
   viewModal: boolean;
   setViewModal: (viewModal: boolean) => void;
 };
+
+export type MiniTopProps = {
+  visible: boolean;
+  setVisible: (visible: boolean) => void;
+  Heading?: string;
+  pageName: string;
+};
+export type BackProfileProps = {
+  title?: string;
+};
