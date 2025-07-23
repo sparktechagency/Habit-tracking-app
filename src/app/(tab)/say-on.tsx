@@ -1,9 +1,7 @@
-import { IconsAdd } from '@/assets/icons'
-import AddSayNoEntryModal from '@/src/components/ui/AddSayNoEntryModal'
+import MiniTopBar from '@/src/components/ui/MiniTopBar'
 import tw from '@/src/lib/tailwind'
 import React, { useState } from 'react'
 import { ScrollView, Text, TouchableOpacity, View } from 'react-native'
-import { SvgXml } from 'react-native-svg'
 
 export default function SayOnScreen() {
     const [visible, setVisible] = useState<boolean>(false)
@@ -11,19 +9,10 @@ export default function SayOnScreen() {
     return (
         <View style={tw`flex-1 bg-primaryBg`}>
             <>
-                <View style={tw` px-[5%] py-3`}>
-                    <View style={tw`flex-row items-center justify-between `}>
-                        <Text style={tw`text-blackish font-montserrat-600 text-xl`}>
-                            Say No Tracker
-                        </Text>
-                        <TouchableOpacity onPress={() => setVisible(!visible)} >
-                            <SvgXml xml={IconsAdd} />
-                        </TouchableOpacity>
-                    </View>
-                </View>
+                <MiniTopBar Heading={'Say No Tracker'} pageName='say-on' visible={visible} setVisible={setVisible} />
 
                 <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{
-                    paddingHorizontal: 20,
+                    paddingHorizontal: 16,
                     paddingTop: 20
                 }} >
                     {[1, 2, 3, 4, 5].map((item) => (
@@ -63,8 +52,7 @@ export default function SayOnScreen() {
                     ))}
                 </ScrollView>
             </>
-            {/* Add Say No Entry Modal */}
-            <AddSayNoEntryModal visible={visible} onClose={() => setVisible(false)} />
+
         </View>
     )
 }
