@@ -2,6 +2,7 @@ import { IconsLeftArrowBlack } from '@/assets/icons';
 import KeyboardAvoidingComponent from '@/src/components/KeyboardAvoidingComponent';
 import Wrapper from '@/src/components/Wrapper';
 import tw from '@/src/lib/tailwind';
+import { storage } from '@/src/utils/localStorage';
 import { Link, router } from 'expo-router';
 import { Formik } from 'formik';
 import React, { useState } from 'react';
@@ -34,6 +35,10 @@ const LoginScreen = () => {
             Alert.alert('Error', 'Login failed. Please try again.');
         }
     };
+
+
+    const role = storage.getString('role');
+    console.log('Current role:', role); //user partner
 
     return (
         <View style={tw`flex-1 relative bg-blackish `}>
@@ -127,7 +132,7 @@ const LoginScreen = () => {
                                             <TouchableOpacity
                                                 style={tw`h-12 bg-yellowGreen rounded-[18px] justify-center items-center mb-4`}
                                                 // onPress={() => handleSubmit()}
-                                                onPress={() => router.push('/(tab)')}
+                                                onPress={() => role === 'user' ? router.push('/(tab)') : router.push('/store-manager/(tab)')}
                                                 disabled={isSubmitting}
                                             >
                                                 <Text style={tw`text-[#3E3E3F] text-[16px]  font-montserrat-700`}>
