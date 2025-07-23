@@ -1,10 +1,22 @@
-import { IconsUser } from '@/assets/icons'
+import { IconsUser, IconsUserGreen } from '@/assets/icons'
 import tw from '@/src/lib/tailwind'
-import React from 'react'
-import { ImageBackground, Text, View } from 'react-native'
+import { storage } from '@/src/utils/localStorage'
+import { router } from 'expo-router'
+import React, { useEffect, useState } from 'react'
+import { ImageBackground, Pressable, Text, View } from 'react-native'
 import { SvgXml } from 'react-native-svg'
 
 export default function RoleScreen() {
+    const [selectedRole, setSelectedRole] = useState<'user' | 'partner' | null>(null);
+
+    // local storage set role and navigate to auth screen
+    useEffect(() => {
+        if (selectedRole) {
+            storage.set('role', selectedRole);
+            router.push('/(auth)');
+        }
+    }, [selectedRole]);
+
     return (
         <ImageBackground
             source={require('@/assets/images/Role-Selection.png')}
@@ -17,34 +29,39 @@ export default function RoleScreen() {
                 </Text>
 
                 <View style={tw`w-full`}>
-                    {/* === USER CARD (YELLOW) === */}
-                    <View style={tw`flex-row p-4 mb-4 rounded-xl bg-yellow-200 border-2 border-yellow-400`}>
-                        <View style={tw`w-10 h-10 bg-black rounded-full justify-center items-center mr-4`}>
-                            <SvgXml xml={IconsUser} width={24} height={24} />
+                    {/* === USER CARD === */}
+                    <Pressable
+                        onPress={() => setSelectedRole('user')}
+                        style={tw`${selectedRole === 'user' ? 'bg-yellowGreen/50 border-yellowGreen' : 'bg-blackish/40'} flex-row items-center p-4 mb-4 rounded-xl border-2`}
+                    >
+                        <View style={tw`w-14 h-14 ${selectedRole === 'user' ? 'bg-yellowGreen' : 'bg-blackish/40'} rounded-full justify-center items-center mr-4`}>
+                            <SvgXml xml={selectedRole === 'user' ? IconsUser : IconsUserGreen} width={28} height={28} />
                         </View>
                         <View style={tw`flex-1`}>
-                            <Text style={tw`text-center text-yellowGreen text-3xl font-montserrat-700`}>User</Text>
-                            <Text style={tw`mt-1 text-sm text-black`}>
+                            <Text style={tw`${selectedRole === 'user' ? 'text-blackish' : 'text-yellowGreen'} text-xl font-montserrat-700`}>User</Text>
+                            <Text style={tw`font-montserrat-500 text-sm ${selectedRole === 'user' ? 'text-blackish' : 'text-yellowGreen'}`}>
                                 I track my habits, join challenges, earn points, and redeem rewards to stay motivated.
                             </Text>
                         </View>
-                    </View>
+                    </Pressable>
 
-                    {/* === REWARD PARTNER CARD (GRAY) === */}
-                    <View style={tw`flex-row p-4 rounded-xl bg-gray-800/60 border border-gray-600`}>
-                        <View style={tw`w-10 h-10 bg-black rounded-full justify-center items-center mr-4`}>
-                            <SvgXml xml={IconsUser} width={24} height={24} />
+                    {/* === REWARD PARTNER CARD === */}
+                    <Pressable
+                        onPress={() => setSelectedRole('partner')}
+                        style={tw`${selectedRole === 'partner' ? 'bg-yellowGreen/50 border-yellowGreen' : 'bg-blackish/40'} flex-row items-center p-4 mb-4 rounded-xl border-2`}
+                    >
+                        <View style={tw`w-14 h-14 ${selectedRole === 'partner' ? 'bg-yellowGreen' : 'bg-blackish/40'} rounded-full justify-center items-center mr-4`}>
+                            <SvgXml xml={selectedRole === 'partner' ? IconsUser : IconsUserGreen} width={28} height={28} />
                         </View>
                         <View style={tw`flex-1`}>
-                            <Text style={tw`text-lg font-bold text-yellow-300`}>Reward Partner</Text>
-                            <Text style={tw`mt-1 text-sm text-white`}>
+                            <Text style={tw`${selectedRole === 'partner' ? 'text-blackish' : 'text-yellowGreen'} text-xl font-montserrat-700`}>Reward Partner</Text>
+                            <Text style={tw`font-montserrat-500 text-sm ${selectedRole === 'partner' ? 'text-blackish' : 'text-yellowGreen'}`}>
                                 I register my business, offer rewards, and track user redemptions to attract and engage customers.
                             </Text>
                         </View>
-                    </View>
+                    </Pressable>
                 </View>
             </View>
         </ImageBackground>
-
     )
 }
