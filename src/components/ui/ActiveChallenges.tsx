@@ -17,18 +17,16 @@ const ActiveChallenges = () => {
                 <View key={item} style={tw`bg-white border-l-4 border-[#BCBDC0] rounded-lg p-3 shadow-md mb-4`}>
                     <View style={tw`flex-col gap-2`}>
                         <View style={tw`flex-col gap-1`}>
-                            <View style={tw`flex-row items-center justify-between border-b border-[#A5A5A5] pb-3`}>
+                            <View style={tw`flex-row items-center justify-between `}>
                                 <Text style={tw`text-blackish font-montserrat-700 text-base  `}>30-Day Fitness Challenge </Text>
                                 <View style={tw` px-2.4 py-1 bg-neutral-700 rounded flex-row justify-center items-center gap-2.5`}>
                                     <Text style={tw`text-white text-xs font-semibold font-montserrat-400`}>Active</Text>
                                 </View>
                             </View>
-                            {/* <View>
-                                <View style={tw`flex-row items-center`}>
-                                    <Text> <SvgXml xml={IconFire} /></Text>
-                                    <Text style={tw`text-xs font-montserrat-300`}>7 days streak</Text>
-                                </View>
-                            </View> */}
+                            <View style={tw`flex-col gap-1 border-b border-[#A5A5A5] pb-3`}>
+                                <Text style={tw`text-xs font-montserrat-400`}>(Sunshine Cafe)</Text>
+                                <Text style={tw`text-xs font-montserrat-400`}>Enjoy a free coffee when you redeem your reward points.</Text>
+                            </View>
                         </View>
 
                         <View style={tw`flex-col gap-4`}>
