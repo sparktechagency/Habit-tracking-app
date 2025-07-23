@@ -36,7 +36,7 @@ export default function GroupCompletion() {
 
             {/*  */}
             <Wrapper>
-                <View style={tw`flex-row justify-between items-center py-3 border-b-[1px] border-gray`}>
+                <View style={tw`flex-row justify-between items-center py-2`}>
                     <View style={tw`flex-1`}>
                         <Text style={tw`text-blackish font-montserrat-600 text-base`}>
                             Thu, Mar 15
@@ -49,6 +49,14 @@ export default function GroupCompletion() {
                         Group Completion{' '}
                         <Text style={tw`font-montserrat-700 text-blackish`}>38%</Text>
                     </Text>
+
+                </View>
+                <View style={tw`flex-col gap-1`}>
+
+                    <View style={tw`flex-col gap-1 border-b border-[#A5A5A5] pb-3`}>
+                        <Text style={tw`text-xs font-montserrat-400`}>(Sunshine Cafe)</Text>
+                        <Text style={tw`text-xs font-montserrat-400`}>Enjoy a free coffee when you redeem your reward points.</Text>
+                    </View>
                 </View>
 
                 {/* User: Lara Croft */}
