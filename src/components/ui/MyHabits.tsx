@@ -1,7 +1,7 @@
 import { IconFire, IconsTick } from '@/assets/icons'
 import tw from '@/src/lib/tailwind'
 import React from 'react'
-import { ScrollView, StyleSheet, Text, View } from 'react-native'
+import { ScrollView, Text, View } from 'react-native'
 import { SvgXml } from 'react-native-svg'
 import ProgressBar from './ProgressBar'
 
@@ -20,11 +20,21 @@ const MyHabits = () => {
                         <View style={tw`flex-col gap-1`}>
                             <View style={tw`flex-row items-center justify-between`}>
                                 <Text style={tw`text-blackish font-montserrat-700 text-base`}>Morning Run</Text>
-                                <View style={tw`px-2.4 py-1 bg-[#716557] rounded flex-row justify-center items-center gap-2.5`}>
-                                    <Text style={tw`text-white text-xs font-semibold font-montserrat-400`}>+15 pts</Text>
+                                <View style={tw`flex-row items-center gap-3`}>
+                                    <View style={tw`px-2.4 py-1 bg-yellowGreen rounded flex-row justify-center items-center gap-2.5`}>
+                                        <Text style={tw`text-blackish text-xs font-semibold font-montserrat-600`}>Health</Text>
+                                    </View>
+                                    <View style={tw`px-2.4 py-1 bg-[#716557] rounded flex-row justify-center items-center gap-2.5`}>
+                                        <Text style={tw`text-white text-xs font-semibold font-montserrat-400`}>+15 pts</Text>
+                                    </View>
                                 </View>
                             </View>
-                            <View>
+
+                            <View style={tw`flex-col gap-2`}>
+                                <View style={tw`flex-col gap-1`}>
+                                    <Text style={tw`text-xs font-montserrat-400`}>(Sunshine Cafe)</Text>
+                                    <Text style={tw`text-xs font-montserrat-400`}>Enjoy a free coffee when you redeem your reward points.</Text>
+                                </View>
                                 <View style={tw`flex-row items-center`}>
                                     <SvgXml xml={IconFire} />
                                     <Text style={tw`text-xs font-montserrat-300`}>7 days streak</Text>
@@ -59,19 +69,5 @@ const MyHabits = () => {
     )
 }
 
-const styles = StyleSheet.create({
-    shadowBox: {
-        backgroundColor: 'white',
-        borderRadius: 10,
-        padding: 12,
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.25,
-        shadowRadius: 4,
-        elevation: 3,
-        marginBottom: 16,
-    },
-
-});
 
 export default MyHabits
