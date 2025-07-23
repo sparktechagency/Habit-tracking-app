@@ -52,6 +52,18 @@ export default function RootLayout() {
             gestureEnabled: false // Disable swipe back on splash screens
           }}
         />
+        <Stack.Screen
+          name='store-manager/(tab)'
+          options={{
+            gestureEnabled: false // Disable swipe back on splash screens
+          }}
+        />
+        <Stack.Screen
+          name='(common)'
+          options={{
+            gestureEnabled: false // Disable swipe back on splash screens
+          }}
+        />
 
 
         {/* Add more groups as needed */}
