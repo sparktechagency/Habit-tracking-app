@@ -39,7 +39,7 @@ const SubscriptionCard = () => {
                         </View>
                     </View>
                     <TouchableOpacity style={tw`bg-blackish py-2 rounded items-center`}>
-                        <Text style={tw`text-white  font-montserrat-600`}>Select Plan</Text>
+                        <Text style={tw`text-white  font-montserrat-600`}>Ongoing</Text>
                     </TouchableOpacity>
                 </View>
             </View>
