@@ -10,7 +10,7 @@ const DailySummaries = () => {
         <ScrollView
             showsVerticalScrollIndicator={false}
             contentContainerStyle={{
-                paddingHorizontal: 25,
+                paddingHorizontal: 10,
                 paddingTop: 15,
                 paddingBottom: 20,
             }}
@@ -21,7 +21,7 @@ const DailySummaries = () => {
                     style={tw`bg-white rounded-xl px-3 py-3.5 mb-4 shadow-md shadow-blackish`}
                 >
                     {/* Header */}
-                    <View style={tw`flex-row justify-between items-center mb-4`}>
+                    <View style={tw`flex-row justify-between items-center mb-2`}>
                         <View style={tw`flex-1`}>
                             <Text style={tw`text-blackish font-montserrat-600 text-base`}>
                                 Thu, Mar 15
@@ -34,6 +34,13 @@ const DailySummaries = () => {
                             Group Completion{' '}
                             <Text style={tw`font-montserrat-700 text-blackish`}>38%</Text>
                         </Text>
+                    </View>
+                    <View style={tw`flex-col gap-1 mb-2`}>
+
+                        <View style={tw`flex-col gap-1 `}>
+                            <Text style={tw`text-xs font-montserrat-400`}>(Sunshine Cafe)</Text>
+                            <Text style={tw`text-xs font-montserrat-400`}>Enjoy a free coffee when you redeem your reward points.</Text>
+                        </View>
                     </View>
 
                     {/* User: Lara Croft */}
