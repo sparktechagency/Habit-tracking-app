@@ -38,7 +38,7 @@ export default function SplashScreenThree() {
                                 {/* Get Started Button */}
                                 <TouchableOpacity
                                     style={tw` w-[100%] flex-row items-center gap-3 justify-center py-3 bg-yellowGreen rounded-2xl `}
-                                    onPress={() => router.push('/(auth)')}
+                                    onPress={() => router.push('/(splash-screen)/role-screen')}
                                 >
                                     <Text style={tw`text-blackish  text-base font-montserrat-700 `}>
                                         Claim Your Reward
