@@ -9,9 +9,8 @@ import ProgressBar from './ProgressBar';
 const OverallProgressCard = () => {
     return (
         <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{
-            paddingHorizontal: 25,
+            paddingHorizontal: 16,
             paddingBottom: 8,
-            // flex: 1
         }} >
             <View style={tw`bg-primaryBg rounded-xl p-5 shadow-lg shadow-blackish my-2 `}>
                 {/* Header Row */}
