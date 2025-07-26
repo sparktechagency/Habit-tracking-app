@@ -46,11 +46,16 @@ const SubscriptionCard = () => {
             <View style={tw` flex-1 flex-col gap-6  `}>
                 <View style={tw`bg-primaryBg border-b-2 flex-col gap-4 border-[#d9d9d9] rounded-xl shadow-md px-4 py-5 `}>
                     <View style={tw`flex-row justify-between items-center `}>
-                        <Text style={tw` text-blackish text-lg font-montserrat-700`}>DooGoo</Text>
+                        <View style={tw`flex-row items-center `}>
+                            <Text style={tw` text-blackish text-lg font-montserrat-700`}>DooGoo</Text>
+                            <Text style={tw` text-blackish text-xs font-montserrat-600`}>($29.99)</Text>
+
+                        </View>
                         <View style={tw`px-2 py-1 rounded-full bg-[#FFB74C]`}>
                             <Text style={tw`text-sm font-montserrat-500 text-blackish`}>Premium Member</Text>
                         </View>
                     </View>
+
                     <View style={tw` flex-col gap-2 `}>
                         <View style={tw` flex-row gap-2 `}>
                             <SvgXml xml={IconsTickGreen} />

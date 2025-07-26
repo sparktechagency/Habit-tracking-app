@@ -12,9 +12,9 @@ const SharedHabits = () => {
         }
     };
     return (
-        <View style={tw`flex-row items-center justify-between bg-white p-4 rounded-lg shadow-md`}>
-            <TouchableOpacity onPress={onShare} style={tw``}>
-                <Text style={tw`text-base font-montserrat-600`} >Shared</Text>
+        <View style={tw``}>
+            <TouchableOpacity onPress={onShare} style={tw` px-2 py-1  bg-blackish  rounded-lg flex-row justify-center items-center gap-2.5`}>
+                <Text style={tw`text-base text-white font-montserrat-600`} >Invite</Text>
             </TouchableOpacity>
         </View>
     );

@@ -139,6 +139,19 @@ const LoginScreen = () => {
                                                     {isSubmitting ? 'Logging in...' : 'Log In'}
                                                 </Text>
                                             </TouchableOpacity>
+                                            <Text style={tw` text-yellowGreen text-center text-base  my-4 font-montserrat-700`}>
+                                                or
+                                            </Text>
+                                            <TouchableOpacity
+                                                style={tw`h-12 border-[1px] border-yellowGreen rounded-[18px] justify-center items-center mb-4`}
+                                                // onPress={() => handleSubmit()}
+                                                onPress={() => role === 'user' ? router.push('/(tab)') : router.push('/store-manager/(tab)')}
+                                                disabled={isSubmitting}
+                                            >
+                                                <Text style={tw`text-yellowGreen text-[16px]  font-montserrat-700`}>
+                                                    {isSubmitting ? 'Logging in...' : 'Continue with Google'}
+                                                </Text>
+                                            </TouchableOpacity>
                                             {/* ------------------------ forget pass ------------------------ */}
                                             {/* <TouchableOpacity
                                                 style={tw`items-end`}

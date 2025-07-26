@@ -26,7 +26,7 @@ const MiniTopBar = ({ Heading, setVisible, visible, pageName }: MiniTopProps) =>
                 </View>
             </View>
             {/* Add Say No Entry Modal */}
-            {pageName === 'say-on' ? <AddSayNoEntryModal visible={visible} onClose={() => setVisible(false)} /> : <AddSayNoEntryModal visible={visible} onClose={() => setVisible(false)} />}
+            <AddSayNoEntryModal visible={visible} onClose={() => setVisible(false)} />
         </View>
     )
 }

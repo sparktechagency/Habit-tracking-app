@@ -11,7 +11,7 @@ import { SvgXml } from 'react-native-svg'
 const ProfileBackButton = ({ title }: BackProfileProps) => {
     return (
         <View style={tw`pt-4 pb-7 px-4`}>
-            <TouchableOpacity style={tw` flex-row gap-2.5`} onPress={() => router.back()} >
+            <TouchableOpacity style={tw` flex-row gap-2.5 items-center`} onPress={() => router.back()} >
                 <SvgXml xml={IconsProfileBack} />
                 <Text style={tw`text-xl font-montserrat-700 text-blackish `} >{title}</Text>
             </TouchableOpacity>

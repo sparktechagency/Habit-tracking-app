@@ -13,3 +13,7 @@ export const ViewTABS: Tab[] = [
   { key: "all", label: "Daily Summaries" },
   { key: "my", label: "Overall Progress" },
 ];
+export const LogProgressTab: Tab[] = [
+  { key: "all", label: "Members" },
+  { key: "my", label: "Reports" },
+];

@@ -22,6 +22,9 @@ const ProfileScreen = () => {
 
 
 
+
+
+
             </ScrollView>
         </View>
     );

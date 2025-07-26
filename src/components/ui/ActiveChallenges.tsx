@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native'
 import JoinChallengeModal from './JoinChallengeModal'
 import ProgressBar from './ProgressBar'
+import SharedHabits from './SharedHabits'
 
 const ActiveChallenges = () => {
     const [modalVisible, setModalVisible] = useState<boolean>(false);
@@ -18,7 +19,7 @@ const ActiveChallenges = () => {
                     <View style={tw`flex-col gap-2`}>
                         <View style={tw`flex-col gap-1`}>
                             <View style={tw`flex-row items-center justify-between `}>
-                                <Text style={tw`text-blackish font-montserrat-700 text-base  `}>30-Day Fitness Challenge </Text>
+                                <Text style={tw`text-blackish font-montserrat-700 text-sm  `}>30-Day Fitness Challenge </Text>
                                 <View style={tw` px-2.4 py-1 bg-neutral-700 rounded flex-row justify-center items-center gap-2.5`}>
                                     <Text style={tw`text-white text-xs font-semibold font-montserrat-400`}>Active</Text>
                                 </View>
@@ -54,12 +55,11 @@ const ActiveChallenges = () => {
                                 </View>
                             </View>
                             <View style={tw`flex-row items-center justify-between`}>
-                                <TouchableOpacity onPress={() => router.push('/view-details')} style={tw` px-2.4 py-2  border rounded-lg flex-row justify-center items-center gap-2.5`}>
-                                    <Text style={tw`text-blackish text-xs font-semibold font-montserrat-700`}>View Details</Text>
+                                <TouchableOpacity onPress={() => router.push('/view-details/view-details-log-progress')} style={tw` px-2.4 py-2  border rounded-lg flex-row justify-center items-center gap-2.5`}>
+                                    <Text style={tw`text-blackish text-xs font-semibold font-montserrat-700`}>Log Progress</Text>
                                 </TouchableOpacity>
-                                <TouchableOpacity onPress={() => setModalVisible(!modalVisible)} style={tw` px-2.4 py-2  bg-blackish  rounded-lg flex-row justify-center items-center gap-2.5`}>
-                                    <Text style={tw` text-xs text-white font-semibold font-montserrat-700`}>Join Challenge</Text>
-                                </TouchableOpacity>
+
+                                <SharedHabits />
                             </View>
                         </View>
                     </View>

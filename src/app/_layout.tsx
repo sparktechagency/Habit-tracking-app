@@ -64,6 +64,12 @@ export default function RootLayout() {
             gestureEnabled: false // Disable swipe back on splash screens
           }}
         />
+        <Stack.Screen
+          name='archived'
+          options={{
+            gestureEnabled: false // Disable swipe back on splash screens
+          }}
+        />
 
 
         {/* Add more groups as needed */}

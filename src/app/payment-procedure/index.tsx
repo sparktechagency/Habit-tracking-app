@@ -4,8 +4,9 @@ import HeadingTop from '@/src/components/ui/HeadingTop'
 import Wrapper from '@/src/components/Wrapper'
 import tw from '@/src/lib/tailwind'
 import { Picker } from '@react-native-picker/picker'
+import axios from 'axios'
 import Checkbox from 'expo-checkbox'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { SvgXml } from 'react-native-svg'
 
@@ -15,6 +16,24 @@ const PaymentProcedure = () => {
     const [checked, setChecked] = React.useState<boolean>(false)
 
     const [description, setDescription] = React.useState<string>('Health');
+    const [country, setCountry] = React.useState<string[]>(["canada", "usa", "mexico"]);
+
+
+    useEffect(() => {
+        // Fetch data or perform any side effects here
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('https://www.apicountries.com/countries');
+                setCountry(response.data);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+
 
     return (
         <View style={tw`flex-1 bg-primaryBg`}>
@@ -113,11 +132,17 @@ const PaymentProcedure = () => {
                                             selectedValue={description}
                                             onValueChange={(itemValue) => setDescription(itemValue)}
                                         >
-                                            <Picker.Item label="Canada" value="canada" />
-                                            <Picker.Item label="Denmark" value="Denmark" />
-                                            <Picker.Item label="Bangladesh" value="Bangladesh" />
-                                            <Picker.Item label="Germany" value="Germany" />
-                                            <Picker.Item label="Nepal" value="Nepal" />
+                                            {
+                                                country?.map((country: string, index: number) => (
+                                                    <Picker.Item
+                                                        key={index}
+                                                        label={country?.name}
+                                                        value={country}
+                                                    />
+                                                ))
+                                            }
+
+
                                             {/* Add more options here */}
                                         </Picker>
                                     </View>

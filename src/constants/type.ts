@@ -56,3 +56,14 @@ export type Country = {
   name: string;
   code: string;
 };
+export type MemberProps = {
+  memberIndex: number;
+  habitIndex: number;
+};
+
+export type NewModalProps = {
+  visible: boolean;
+  onClose: () => void;
+  // onSave: (habit: Habit) => void;
+  // addHeading?: string;
+};

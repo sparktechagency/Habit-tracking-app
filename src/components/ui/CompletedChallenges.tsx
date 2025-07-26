@@ -6,6 +6,7 @@ import { router } from 'expo-router'
 import React from 'react'
 import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native'
 import ProgressBar from './ProgressBar'
+import SharedHabits from './SharedHabits'
 
 const CompletedChallenges = () => {
 
@@ -55,12 +56,12 @@ const CompletedChallenges = () => {
                                 </View>
                             </View>
                             <View style={tw`flex-row items-center justify-between`}>
-                                <TouchableOpacity onPress={() => router?.push('/view-details')} style={tw` px-2.4 py-2  border rounded-lg flex-row justify-center items-center gap-2.5`}>
-                                    <Text style={tw`text-blackish text-xs font-semibold font-montserrat-700`}>View Details</Text>
+                                <TouchableOpacity onPress={() => router?.push('/view-details/view-details-log-progress')} style={tw` px-2.4 py-2  border rounded-lg flex-row justify-center items-center gap-2.5`}>
+                                    <Text style={tw`text-blackish text-xs font-semibold font-montserrat-700`}>Log Progress</Text>
                                 </TouchableOpacity>
-                                {/* <TouchableOpacity onPress={() => setModalVisible(!modalVisible)} style={tw` px-2.4 py-2  bg-blackish  rounded-lg flex-row justify-center items-center gap-2.5`}>
-                                    <Text style={tw` text-xs text-white font-semibold font-montserrat-700`}>Join Challenge</Text>
-                                </TouchableOpacity> */}
+
+                                {/*  */}
+                                <SharedHabits />
                             </View>
                         </View>
                     </View>

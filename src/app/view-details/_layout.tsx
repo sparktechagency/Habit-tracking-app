@@ -1,3 +1,4 @@
+import HeadingTop from '@/src/components/ui/HeadingTop';
 import { Stack } from 'expo-router';
 import React from 'react';
 import { View } from 'react-native';
@@ -8,9 +9,17 @@ export default function DetailsViewLayout() {
 
     return (
         <View style={{ flex: 1, paddingBottom: bottom }} >
+            <HeadingTop />
             <Stack>
                 <Stack.Screen
                     name="index"
+                    options={{
+                        animation: 'slide_from_right',
+                        headerShown: false, //
+                    }}
+                />
+                <Stack.Screen
+                    name="view-details-log-progress"
                     options={{
                         animation: 'slide_from_right',
                         headerShown: false, //

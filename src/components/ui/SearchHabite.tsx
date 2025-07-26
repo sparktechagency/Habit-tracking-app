@@ -12,6 +12,8 @@ const SearchHabite = ({ title, addHeading }: AddGroupProps) => {
     const [onSave, setOnSave] = useState<string>("")
 
     const hiddednAdded = addHeading === "Rewards";
+
+
     return (
         <View style={tw` flex-col gap-3  px-[4%] pt-[3%]`}>
             {/* Header Section */}

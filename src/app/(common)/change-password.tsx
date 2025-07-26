@@ -92,7 +92,7 @@ export default function ChangePasswordScreen() {
                                     contentContainerStyle={{ flexGrow: 1 }}
                                 // keyboardShouldPersistTaps="handled"
                                 >
-                                    <View style={tw`flex-1  py-2  `}>
+                                    <View style={tw`flex-1  pt-10  `}>
                                         {/* Back and Title */}
                                         {/* Image */}
                                         <View style={tw`items-center`}>
@@ -209,7 +209,7 @@ export default function ChangePasswordScreen() {
                                             <View style={tw``}>
                                                 <TouchableOpacity
                                                     onPress={() =>
-                                                        router.push('/(common)/update-profile')
+                                                        router.push('/(tab)/profile')
                                                     }
                                                     style={tw`bg-blackish w-full p-2 rounded flex-row justify-center items-center gap-2`}
                                                 >

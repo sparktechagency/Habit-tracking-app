@@ -13,7 +13,7 @@ export default function GroupsScreen() {
     return (
         <View style={tw`flex-1 bg-primaryBg`}>
             {/* --------------- top heading --------------- */}
-            <SearchHabite title='Group Challenges' addHeading='Add Group Challenge' />
+            <SearchHabite title='Group Challenges' addHeading='Create New Group' />
 
             {/* -------------- tabs -------------------------- */}
             <View style={tw`flex-row mb-2`}>

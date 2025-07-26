@@ -1,5 +1,6 @@
 import { IconFire, IconsStar, IconsTick } from '@/assets/icons'
 import tw from '@/src/lib/tailwind'
+import { router } from 'expo-router'
 import React, { useState } from 'react'
 import { ScrollView, Text, TouchableOpacity, View } from 'react-native'
 import { SvgXml } from 'react-native-svg'
@@ -16,7 +17,7 @@ const AllHAbits = () => {
         }} >
             {[1, 2, 3, 4, 5, 6, 7].map((item) => (
                 // TODO 
-                <View key={item} style={tw`bg-white border-l-4 border-[#BCBDC0] rounded-lg p-3 shadow-md mb-4`} >
+                <TouchableOpacity onPress={() => item % 2 === 0 && router.push('/payment-procedure')} key={item} style={tw`bg-white border-l-4 border-[#BCBDC0] rounded-lg p-3 shadow-md mb-4`} >
                     <View style={tw`flex-col gap-2`}>
                         <View style={tw`flex-col gap-1`}>
                             <View style={tw`flex-row items-center justify-between`}>
@@ -70,7 +71,7 @@ const AllHAbits = () => {
                             </View>
                         </View>
                     </View>
-                </View>
+                </TouchableOpacity>
             ))}
             <JoinChallengeModal modalVisible={modalVisible} setModalVisible={setModalVisible} />
 
