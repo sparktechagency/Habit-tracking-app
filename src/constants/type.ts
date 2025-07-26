@@ -51,3 +51,8 @@ export type MiniTopProps = {
 export type BackProfileProps = {
   title?: string;
 };
+
+export type Country = {
+  name: string;
+  code: string;
+};
