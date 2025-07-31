@@ -1,4 +1,4 @@
-import { IconsProfile, IconsProfileActive, IconsRewardsActives, IconsRewardsInActive } from '@/assets/icons';
+import { IconsProfile, IconsProfileActive, IconsRedemptions, IconsRedemptionsActive, IconsRewardsActives, IconsRewardsInActive } from '@/assets/icons';
 import HeadingTop from '@/src/components/ui/HeadingTop';
 import { Tabs } from 'expo-router';
 import React from 'react';
@@ -53,7 +53,7 @@ export default function StoreManagerRootLayout() {
                     options={{
                         title: 'Redemptions',
                         tabBarIcon: ({ focused }) => (
-                            <SvgXml xml={focused ? IconsRewardsActives : IconsRewardsInActive} />
+                            <SvgXml xml={focused ? IconsRedemptionsActive : IconsRedemptions} />
                         ),
                         animation: 'none'
 

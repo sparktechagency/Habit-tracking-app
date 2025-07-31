@@ -25,6 +25,12 @@ export type Habit = {
   participants: string;
 };
 
+export type HabitProps = {
+  id: number;
+  name: string;
+  count: string;
+};
+
 export type AddHabitModalProps = {
   visible: boolean;
   onClose: () => void;

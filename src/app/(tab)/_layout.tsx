@@ -64,7 +64,7 @@ export default function TabLayout() {
                 <Tabs.Screen
                     name="say-on"
                     options={{
-                        title: 'Say On',
+                        title: 'SayNO!',
                         tabBarIcon: ({ focused }) => (
                             <SvgXml xml={focused ? IconsSayNOActive : IconsSayNO} />
                         ),

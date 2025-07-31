@@ -1,4 +1,4 @@
-import { IconsLeftArrowBlack } from '@/assets/icons';
+import { IconsGoogleICons, IconsLeftArrowBlack } from '@/assets/icons';
 import KeyboardAvoidingComponent from '@/src/components/KeyboardAvoidingComponent';
 import Wrapper from '@/src/components/Wrapper';
 import tw from '@/src/lib/tailwind';
@@ -143,12 +143,13 @@ const LoginScreen = () => {
                                                 or
                                             </Text>
                                             <TouchableOpacity
-                                                style={tw`h-12 border-[1px] border-yellowGreen rounded-[18px] justify-center items-center mb-4`}
+                                                style={tw`h-12 flex-row items-center gap-2 border-[1px] border-yellowGreen rounded-[18px] justify-center  mb-4`}
                                                 // onPress={() => handleSubmit()}
                                                 onPress={() => role === 'user' ? router.push('/(tab)') : router.push('/store-manager/(tab)')}
                                                 disabled={isSubmitting}
                                             >
-                                                <Text style={tw`text-yellowGreen text-[16px]  font-montserrat-700`}>
+                                                <SvgXml xml={IconsGoogleICons} width={22} height={22} />
+                                                <Text style={tw`text-yellowGreen text-[16px] items-center justify-center   font-montserrat-700`}>
                                                     {isSubmitting ? 'Logging in...' : 'Continue with Google'}
                                                 </Text>
                                             </TouchableOpacity>

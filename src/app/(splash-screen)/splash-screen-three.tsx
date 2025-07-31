@@ -9,9 +9,8 @@ import { SvgXml } from 'react-native-svg'
 export default function SplashScreenThree() {
     return (
         <ImageBackground
-            source={require('@/assets/images/Splash Screen 4 (3).png')}
+            source={require('@/assets/images/splash-screen-3.png')}
             style={tw`w-full h-full`}
-            blurRadius={2}
         >
             <View style={tw`flex-1`}>
                 <Wrapper>
@@ -22,7 +21,20 @@ export default function SplashScreenThree() {
 
                         <View style={tw` w-full flex-col gap-10 justify-center items-center`}>
                             {/* Main quote */}
-                            <Text style={tw`text-center text-yellowGreen  text-3xl font-montserrat-700`}>
+                            {/* <Text style={tw`text-center text-yellowGreen  text-3xl font-montserrat-700`}>
+                                Sailing into your dream life is your reward
+                            </Text> */}
+
+                            <Text
+                                style={[
+                                    tw`text-center text-yellowGreen text-3xl font-montserrat-700`,
+                                    {
+                                        textShadowColor: '#000',
+                                        textShadowOffset: { width: -1, height: 1 },
+                                        textShadowRadius: 10,
+                                    },
+                                ]}
+                            >
                                 Sailing into your dream life is your reward
                             </Text>
 

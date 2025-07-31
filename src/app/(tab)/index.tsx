@@ -1,5 +1,7 @@
-import { IconsArchived, IconsDeleted, IconsFaqDownArrow, IconsFaqTopArrow, IconsSquer, IconsStart, IconsWhiteStar } from '@/assets/icons';
+import { IconsArchived, IconsDeleted, IconsFaqDownArrow, IconsFaqTopArrow, IconsSquer, IconsStaerActive, IconsStarBalck, IconsStart, IconsWhiteStar } from '@/assets/icons';
+import HabitTracker from '@/src/components/ui/HabitTracker';
 import NewAddedModal from '@/src/components/ui/NewAddedModal';
+import { habits } from '@/src/constants/tabs';
 import tw from '@/src/lib/tailwind';
 import { router } from 'expo-router';
 import React, { useState } from 'react';
@@ -7,14 +9,10 @@ import { Alert, LayoutAnimation, Pressable, ScrollView, Text, TextInput, Touchab
 import { SvgXml } from 'react-native-svg';
 
 export default function HabitsScreen() {
-    const habits = [
-        { id: 1, name: 'Practice', count: '1 times' },
-        { id: 2, name: 'Relationships', count: '1 times' },
-        { id: 3, name: 'Meditation', count: '2 times' },
-        { id: 4, name: 'Learning', count: '3 times' }
-    ];
+
 
     const [expandedAccordion, setExpandedAccordion] = useState<number | null>(null);
+    const [favourite, setFavourite] = useState<boolean>(false)
 
     const toggleAccordion = (id: number) => {
         LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
@@ -23,6 +21,9 @@ export default function HabitsScreen() {
 
     const [deleted, setDeleted] = useState<boolean>(false)
     const [visible, setVisible] = useState<boolean>(false)
+
+
+
 
     const handleDeleted = () => {
         Alert.alert(
@@ -44,7 +45,27 @@ export default function HabitsScreen() {
             ]
         );
     };
-
+    const handleArchived = () => {
+        Alert.alert(
+            "Archive Entry",
+            "Are you sure you want to archive this entry?",
+            [
+                {
+                    text: "Cancel",
+                    style: "cancel",
+                },
+                {
+                    text: "Archive",
+                    onPress: () => {
+                        // Archive logic here
+                        console.log("Entry archived");
+                    },
+                    style: "destructive",
+                },
+            ],
+            { cancelable: true }
+        );
+    };
 
     const handleDone = () => {
         Alert.alert(
@@ -60,6 +81,24 @@ export default function HabitsScreen() {
                     onPress: () => {
                         console.log("Marked as done!")
 
+                    }
+                }
+            ]
+        )
+    }
+    const handleFavourite = () => {
+        Alert.alert(
+            "Favourite as Done",
+            "Are you sure you want to mark this as done?",
+            [
+                {
+                    text: "Cancel",
+                    style: "cancel"
+                },
+                {
+                    text: "Yes",
+                    onPress: () => {
+                        setFavourite(!favourite)
                     }
                 }
             ]
@@ -115,75 +154,133 @@ export default function HabitsScreen() {
                 <Text style={tw` px-[4%]  text-sm font-montserrat-600 flex-col gap-4 mb-3`}>All Habits</Text>
             </View>
 
-            <ScrollView>
+            <ScrollView showsVerticalScrollIndicator={false}>
                 <View style={tw`p-4`}>
                     {habits.map((item) => (
                         <View key={item.id} style={tw`mb-6`}>
+                            {/* Accordion Header */}
                             <Pressable
                                 onPress={() => toggleAccordion(item.id)}
                                 style={tw`border-l-4 border-gray flex-row justify-between items-center bg-white shadow-md p-4 rounded-lg`}
+                                accessibilityLabel={`${item.name} habit`}
+                                accessibilityRole="button"
                             >
                                 <View style={tw`flex-row gap-2 items-center`}>
                                     <View style={tw`bg-gray/50 p-1 rounded`}>
-                                        <SvgXml xml={IconsSquer} />
+                                        <SvgXml xml={IconsSquer} width={20} height={20} />
                                     </View>
                                     <View style={tw`bg-yellowGreen p-2 rounded-full`}>
-                                        <SvgXml xml={IconsWhiteStar} />
+                                        <SvgXml xml={IconsWhiteStar} width={16} height={16} />
                                     </View>
                                     <Text style={tw`text-lg font-bold`}>{item.name}</Text>
                                 </View>
-                                <SvgXml xml={expandedAccordion === item.id ? IconsFaqTopArrow : IconsFaqDownArrow} />
+                                <SvgXml
+                                    xml={expandedAccordion === item.id ? IconsFaqTopArrow : IconsFaqDownArrow}
+                                    width={16}
+                                    height={16}
+                                />
                             </Pressable>
 
+                            {/* Accordion Content */}
                             {expandedAccordion === item.id && (
-                                <View style={tw`bg-white border-gray border-[1px] rounded-lg  mt-5 overflow-hidden`}>
+                                <View style={tw`bg-white border border-gray rounded-lg mt-2 overflow-hidden`}>
                                     {[1, 2, 3].map((subItem) => (
-                                        <View key={subItem} style={tw`p-4 border-gray/60 border-b-[1px]`}>
+                                        <View key={`subitem-${item.id}-${subItem}`} style={tw`p-4 border-b border-gray/60`}>
                                             <View style={tw`flex-row justify-between items-center`}>
-                                                <View style={tw`flex-row gap-3 items-center mb-2`}>
-                                                    <View style={tw`bg-gray/50 p-1 rounded`}>
-                                                        <SvgXml xml={IconsSquer} />
-                                                    </View>
-                                                    <View style={tw`flex-col gap-1`}>
+                                                <View style={tw`flex-row gap-3 items-center`}>
+                                                    {/* <View style={tw`bg-gray/50 p-1 rounded`}>
+                                                        <SvgXml xml={IconsSquer} width={20} height={20} />
+                                                    </View> */}
+                                                    <View style={tw`gap-1.5`}>
                                                         <Text style={tw`text-base`}>Complete todo list</Text>
-                                                        <View style={tw`flex-row gap-1`}>
-                                                            <SvgXml xml={IconsStart} />
-                                                            <Text style={tw`text-gray-500`}>1 item</Text>
+                                                        <View style={tw`flex-row gap-1 items-center`}>
+                                                            <SvgXml xml={IconsStart} width={14} height={14} />
+                                                            <Text style={tw`text-gray-500 text-sm`}>1 item</Text>
                                                         </View>
+                                                        {
+                                                            item.name !== 'Favourite' && deleted && (
+                                                                <Pressable
+                                                                    onPress={handleArchived}
+                                                                    style={tw`border-blackish border-[1px]  items-center px-2 py-1 rounded`}
+                                                                    accessibilityLabel="Mark done"
+                                                                >
+                                                                    <Text style={tw`text-blackText text-sm font-montserrat-600`}>Archived</Text>
+                                                                </Pressable>
+                                                            )
+                                                        }
+
                                                     </View>
                                                 </View>
-                                                {
-                                                    deleted ? <View style={tw`flex-col flex-1 items-end`}>
-                                                        <Pressable onPress={handleDeleted}>
-                                                            <SvgXml xml={IconsDeleted} />
-                                                        </Pressable>
-                                                    </View> :
-                                                        <View style={tw`justify-end items-end  `}>
-                                                            <Pressable onPress={handleDone}>
-                                                                <Text style={tw`text-white text-sm bg-blackish p-1 rounded font-montserrat-600`}>Done</Text>
+
+                                                {item.name !== 'Favourite' ? (
+                                                    <View style={tw`flex-row items-center gap-3`}>
+                                                        {
+                                                            !deleted && <Pressable
+                                                                onPress={handleFavourite}
+                                                                accessibilityLabel={favourite ? "Remove favorite" : "Add favorite"}
+                                                            >
+                                                                <SvgXml
+                                                                    xml={favourite ? IconsStaerActive : IconsStarBalck}
+                                                                    width={20}
+                                                                    height={20}
+                                                                />
                                                             </Pressable>
-                                                        </View>
+                                                        }
+
+                                                        {deleted ? (
+                                                            <Pressable onPress={handleDeleted} accessibilityLabel="Delete">
+                                                                <SvgXml xml={IconsDeleted} width={20} height={20} />
+                                                            </Pressable>
+                                                        ) : (
+                                                            <Pressable
+                                                                onPress={handleDone}
+                                                                style={tw`bg-blackish px-3 py-1 rounded`}
+                                                                accessibilityLabel="Mark done"
+                                                            >
+                                                                <Text style={tw`text-white text-sm font-montserrat-600`}>Done</Text>
+                                                            </Pressable>
+                                                        )}
+                                                    </View>
+                                                ) :
+
+                                                    deleted && (
+                                                        <Pressable onPress={handleDeleted} accessibilityLabel="Delete">
+                                                            <SvgXml xml={IconsDeleted} width={20} height={20} />
+                                                        </Pressable>
+                                                    )
 
                                                 }
                                             </View>
                                         </View>
                                     ))}
-                                    {deleted && <Pressable
-                                        style={tw`flex-row items-center p-4`}
-                                        onPress={() => setVisible(!visible)}
-                                    >
-                                        <Text style={tw`text-[#ffb74c] text-lg font-montserrat-700 mr-1`}>+</Text>
-                                        <Text style={tw`text-[#ffb74c] text-base font-montserrat-600`}>
-                                            Add New Habit
-                                        </Text>
-                                    </Pressable>}
+
+                                    {deleted && (
+                                        <Pressable
+                                            style={tw`flex-row items-center p-4`}
+                                            onPress={() => setVisible(!visible)}
+                                            accessibilityLabel="Add new habit"
+                                        >
+                                            <Text style={tw`text-yellow-400 text-lg font-montserrat-700 mr-1`}>+</Text>
+                                            <Text style={tw`text-yellow-400 text-base font-montserrat-600`}>
+                                                Add New Habit
+                                            </Text>
+                                        </Pressable>
+                                    )}
                                 </View>
                             )}
                         </View>
                     ))}
                 </View>
+
+                {/* Habit Tracker Section */}
+                <View style={tw`p-4`}>
+                    <HabitTracker />
+                </View>
             </ScrollView>
             <NewAddedModal visible={visible} onClose={() => setVisible(!visible)} />
+
+
+
         </View>
     );
 }
