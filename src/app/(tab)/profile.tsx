@@ -1,5 +1,5 @@
-import CalendarView from '@/src/components/ui/CalendarView';
 import HabitCompletionRateGraph from '@/src/components/ui/HabitCompletionRateGraph';
+import HabitTracker from '@/src/components/ui/HabitTracker';
 import MoodTrackingGraph from '@/src/components/ui/MoodTrackingGraph';
 import ProductivityInsightsGraph from '@/src/components/ui/ProductivityInsightsGraph';
 import ProfileHeader from '@/src/components/ui/ProfileHeader';
@@ -26,7 +26,8 @@ const ProfileScreen = () => {
                     {/*  */}
 
                     <View style={tw`flex-1 flex-col gap-6  rounded-md shadow bg-[#FCFCFC] px-5 py-4`}>
-                        <CalendarView />
+                        {/* <CalendarView /> */}
+                        <HabitTracker />
                         <WorkoutProgress />
                     </View>
 

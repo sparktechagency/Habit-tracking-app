@@ -71,7 +71,6 @@ export default function RootLayout() {
           }}
         />
 
-
         {/* Add more groups as needed */}
         {/* <Stack.Screen name="(app)" /> */}
         {/* <Stack.Screen name="(onboarding)" /> */}

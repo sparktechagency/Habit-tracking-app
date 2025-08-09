@@ -5,11 +5,11 @@ import { Text, View } from 'react-native'
 const ProfileStatsCards = () => {
     return (
         <View>
-            <View style={tw`flex-row gap-4  justify-around flex-wrap  `}>
-                <View style={tw`flex-col gap-5  justify-around flex-wrap `} >
+            <View style={tw`flex-row gap-4  justify-around   `}>
+                <View style={tw`flex-col gap-5  justify-around  `} >
                     <View style={tw`bg-[#FCFCFC] p-8 border-b-4 border-[#d9d9d9] shadow-md rounded-xl gap-2`}>
                         <Text style={tw` text-blackish text-xl font-montserrat-600 text-center`}>3</Text>
-                        <Text style={tw` text-blackish text-base font-montserrat-500 text-center`}>Total Habits</Text>
+                        <Text style={tw` text-blackish text-base font-montserrat-500 text-center`}>{`Completed\nChallenges`}</Text>
                     </View>
                     <View style={tw` bg-[#FCFCFC] p-8 border-b-4 border-[#d9d9d9] shadow-md rounded-xl gap-2`}>
                         <Text style={tw` text-blackish text-xl font-montserrat-600 text-center`}>10</Text>
@@ -17,14 +17,14 @@ const ProfileStatsCards = () => {
                     </View>
 
                 </View>
-                <View style={tw`flex-col gap-5  justify-around flex-wrap `}>
+                <View style={tw`flex-col gap-5  justify-around  `}>
                     <View style={tw`bg-[#FCFCFC] p-8 border-b-4 border-[#d9d9d9] shadow-md rounded-xl gap-2`}>
                         <Text style={tw` text-blackish text-xl font-montserrat-600 text-center`}>7</Text>
-                        <Text style={tw` text-blackish text-base font-montserrat-500 text-center`}>Day Streak</Text>
+                        <Text style={tw` text-blackish text-base font-montserrat-500 text-center`}>{'Longest\nStreaking'}</Text>
                     </View>
                     <View style={tw` bg-[#FCFCFC] p-8 border-b-4 border-[#d9d9d9] shadow-md rounded-xl gap-2   `}>
-                        <Text style={tw` text-blackish text-xl font-montserrat-600 text-center`}>71%</Text>
-                        <Text style={tw` text-blackish text-base font-montserrat-500 text-center`}>Success Rate</Text>
+                        <Text style={tw` text-blackish text-xl font-montserrat-600 text-center`}>3</Text>
+                        <Text style={tw` text-blackish text-base font-montserrat-500 text-center`}>Say No</Text>
                     </View>
                 </View>
             </View>

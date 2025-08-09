@@ -17,7 +17,6 @@ const HabitTracker = () => {
 
   return (
     <View style={tw`flex-1 `}>
-      <Text style={tw`text-xl text-center pb-5 font-montserrat-700`}>Habit Tracking</Text>
       {/* Year Selector */}
       <View style={tw`flex-row justify-between items-center mb-4`}>
         <Pressable onPress={() => setSelectedYear((prev) => prev - 1)}>

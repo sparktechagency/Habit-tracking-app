@@ -1,16 +1,19 @@
 import { IconsHandler } from '@/assets/icons';
 import tw from '@/src/lib/tailwind';
 import { storage } from '@/src/utils/localStorage';
-import { router } from 'expo-router';
 import React, { useState } from 'react';
 import { Image, Text, TouchableOpacity, View } from 'react-native';
 import { SvgXml } from 'react-native-svg';
-import Logout from './Logout';
 
 const ProfileHeader = () => {
     const [settingView, setSettingView] = useState<boolean>(false);
 
     const role = storage.getString('role')
+
+    const [modalVisible, setModalVisible] = React.useState(false);
+
+
+
 
     return (
         <View style={tw`flex-1 bg-white  pt-5 relative`}>
@@ -19,7 +22,7 @@ const ProfileHeader = () => {
                 <Text style={tw`text-black text-xl font-montserrat-700`}>My Profile</Text>
 
                 <TouchableOpacity
-                    onPress={() => setSettingView(prev => !prev)}
+                    // onPress={() => setModalVisible(true)}
                     hitSlop={10}
                     accessibilityLabel="Open Settings"
                 >
@@ -27,36 +30,6 @@ const ProfileHeader = () => {
                 </TouchableOpacity>
             </View>
 
-            {/* Dropdown Menu */}
-            {settingView && (
-                <View style={tw`absolute top-16 right-4 bg-white px-4 py-3 rounded-xl shadow-lg z-50`}>
-                    <TouchableOpacity
-                        style={tw`py-2`}
-                        onPress={() => {
-                            // handle edit profile
-                            setSettingView(false);
-                            router.push('/(common)');
-                        }}
-                    >
-                        <Text style={tw`text-blackish text-base font-montserrat-600`}>My Profile</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity
-                        style={tw`py-2`}
-                        onPress={() => {
-                            // handle change password
-                            setSettingView(false);
-                            router.push('/(common)/change-password');
-
-                        }}
-                    >
-                        <Text style={tw`text-blackish text-base font-montserrat-600`}>Change Password</Text>
-                    </TouchableOpacity>
-
-                    <Logout setSettingView={setSettingView} />
-
-                </View>
-            )}
 
             {/* Profile Info */}
             <View style={tw`mt-6 flex-row items-center`}>
@@ -119,6 +92,8 @@ const ProfileHeader = () => {
                     </View>
                 }
             </View>
+            {/* <SideBarModal visible={modalVisible} onClose={() => setModalVisible(false)} /> */}
+
         </View>
     );
 };
