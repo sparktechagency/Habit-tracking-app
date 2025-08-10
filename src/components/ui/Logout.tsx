@@ -1,6 +1,8 @@
+import { IconsLogout } from '@/assets/icons';
 import tw from '@/src/lib/tailwind';
 import React from 'react';
 import { Alert, Text, TouchableOpacity, View } from 'react-native';
+import { SvgXml } from 'react-native-svg';
 
 type LogoutProps = {
     setSettingView: (visible: boolean) => void;
@@ -35,9 +37,10 @@ const Logout = ({ setSettingView }: LogoutProps) => {
     return (
         <View>
             <TouchableOpacity
-                style={tw`py-2`}
+                style={tw` flex-row gap-1 px-6 py-4`}
                 onPress={handleLogout}
             >
+                <SvgXml xml={IconsLogout} />
                 <Text style={tw`text-red-500 text-base font-montserrat-600`}>
                     Log Out
                 </Text>

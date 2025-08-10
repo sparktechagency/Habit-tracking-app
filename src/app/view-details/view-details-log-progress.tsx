@@ -10,7 +10,6 @@ const LogProgress = () => {
 
     return (
         <View style={tw`flex-1 bg-white  pt-4`}>
-            {/* Input always on top */}
 
             {/* Tabs */}
             <View style={tw`flex-row `}>
@@ -28,7 +27,7 @@ const LogProgress = () => {
                             <Text
                                 style={[
                                     tw`text-sm font-montserrat-400`,
-                                    isActive ? tw`text-textborder-blackText font-montserrat-600` : tw`text-blackText`,
+                                    isActive ? tw`text-blackText font-montserrat-600` : tw`text-blackText`,
                                 ]}
                             >
                                 {tab.label}

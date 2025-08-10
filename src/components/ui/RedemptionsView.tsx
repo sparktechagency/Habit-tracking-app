@@ -42,7 +42,7 @@ const RedemptionsView = () => {
                             </View>
                         </View>
                     ))}
-                    <RedemptionDetailsModal viewModal={viewModal} setViewModal={setViewModal} />
+                    <RedemptionDetailsModal props={'stor'} viewModal={viewModal} setViewModal={setViewModal} />
                 </View>
             </ScrollView>
         </View>

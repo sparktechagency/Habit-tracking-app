@@ -1,6 +1,7 @@
 import { IconsClose } from '@/assets/icons';
 import { AddHabitModalProps } from '@/src/constants/type';
 import tw from '@/src/lib/tailwind';
+import { Picker } from '@react-native-picker/picker';
 import React, { useState } from 'react';
 import {
   KeyboardAvoidingView,
@@ -82,6 +83,17 @@ const AddHabitModal = ({ visible, onClose, addHeading }: AddHabitModalProps) => 
               style={tw`border-gray border-[1px] p-3 rounded-lg mb-5`}
               accessibilityLabel="Challenge name input"
             />
+            <View style={tw`border border-blackish/40 rounded`}>
+              <Picker
+              >
+                {/* Extra Categories */}
+                <Picker.Item label="Health" value="Health" />
+                <Picker.Item label="Fitness" value="Fitness" />
+                <Picker.Item label="Productivity" value="Productivity" />
+                <Picker.Item label="Learning" value="Learning" />
+              </Picker>
+            </View>
+
           </KeyboardAvoidingView>
         );
       case 1:

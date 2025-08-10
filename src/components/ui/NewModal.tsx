@@ -34,9 +34,9 @@ const NewModal = ({ visible, onClose }: NewModalProps) => {
                     {/* Header */}
                     <View style={tw`flex-row justify-between items-center mb-4`}>
                         <Text style={tw`text-xl  font-montserrat-700`}>Add “Say No” Entry</Text>
-                        {/* <Pressable onPress={onClose}>
+                        <Pressable onPress={onClose}>
                             <Text style={tw`text-2xl font-montserrat-600`}>×</Text>
-                        </Pressable> */}
+                        </Pressable>
                     </View>
 
 

@@ -37,6 +37,30 @@ export default function ProfileRootLayout() {
                         headerShown: false,
                     }}
                 />
+                <Stack.Screen
+                    name="notification"
+                    options={{
+                        headerShown: false,
+                    }}
+                />
+                <Stack.Screen
+                    name="termsandconditions"
+                    options={{
+                        headerShown: false,
+                    }}
+                />
+                <Stack.Screen
+                    name="aboutus"
+                    options={{
+                        headerShown: false,
+                    }}
+                />
+                <Stack.Screen
+                    name="dataprivacy"
+                    options={{
+                        headerShown: false,
+                    }}
+                />
             </Stack>
         </View>
     )

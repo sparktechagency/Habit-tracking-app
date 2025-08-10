@@ -1,16 +1,27 @@
-import { IconsHandler } from '@/assets/icons';
+import { IconsAbout, IconsChangePassword, IconsDataPrivacy, IconsHandler, IconsNotification, IconsProfile, IconsTermsConditionsy } from '@/assets/icons';
 import tw from '@/src/lib/tailwind';
 import { storage } from '@/src/utils/localStorage';
+import { router } from 'expo-router';
 import React, { useState } from 'react';
 import { Image, Text, TouchableOpacity, View } from 'react-native';
 import { SvgXml } from 'react-native-svg';
+import Logout from './Logout';
 
 const ProfileHeader = () => {
     const [settingView, setSettingView] = useState<boolean>(false);
 
+
     const role = storage.getString('role')
 
     const [modalVisible, setModalVisible] = React.useState(false);
+    const menuItems = [
+        { icon: IconsProfile, label: "My Profile", route: "/(common)" },
+        { icon: IconsChangePassword, label: "Change Password", route: "/(common)/change-password" },
+        { icon: IconsNotification, label: "Notification", route: "/(common)/notification" },
+        { icon: IconsAbout, label: "About Us", route: "/(common)/aboutus" },
+        { icon: IconsDataPrivacy, label: "Data Privacy", route: "/(common)/dataprivacy" },
+        { icon: IconsTermsConditionsy, label: "Terms & Conditions", route: "/(common)/termsandconditions" },
+    ];
 
 
 
@@ -18,17 +29,44 @@ const ProfileHeader = () => {
     return (
         <View style={tw`flex-1 bg-white  pt-5 relative`}>
             {/* Top Header */}
-            <View style={tw`flex-row items-center justify-between`}>
-                <Text style={tw`text-black text-xl font-montserrat-700`}>My Profile</Text>
+            <View style={tw`flex-row items-center justify-between relative`}>
+                <Text style={tw`text-black text-xl font-montserrat-700`}>
+                    My Profile
+                </Text>
 
+                {/* 3-dot button */}
                 <TouchableOpacity
-                    // onPress={() => setModalVisible(true)}
+                    onPress={() => setSettingView((prev) => !prev)}
                     hitSlop={10}
                     accessibilityLabel="Open Settings"
                 >
                     <SvgXml xml={IconsHandler} width={24} height={24} />
                 </TouchableOpacity>
+
+                {/* Dropdown Menu */}
+                {settingView && (
+                    <View style={tw`absolute top-10 right-0 z-50 bg-white rounded-lg shadow-lg`}>
+                        {menuItems.map((item, index) => (
+                            <TouchableOpacity
+                                key={index}
+                                style={tw`py-3 px-5`}
+                                onPress={() => {
+                                    setSettingView(false);
+                                    router.push(item?.route)
+                                }}
+                            >
+                                <View style={tw`flex-row items-cente gap-1r`}>
+                                    <SvgXml xml={item.icon} width={24} height={24} />
+                                    <Text style={tw`text-black text-sm`}>{item.label}</Text>
+                                </View>
+                            </TouchableOpacity>
+                        ))}
+                        <Logout setSettingView={() => setSettingView(true)} />
+                    </View>
+                )}
+
             </View>
+
 
 
             {/* Profile Info */}
@@ -92,7 +130,6 @@ const ProfileHeader = () => {
                     </View>
                 }
             </View>
-            {/* <SideBarModal visible={modalVisible} onClose={() => setModalVisible(false)} /> */}
 
         </View>
     );

@@ -43,7 +43,7 @@ const HabitGrid = () => {
         <View style={tw`flex-row `}>
           {/* Left Sidebar - Members */}
           <ScrollView showsVerticalScrollIndicator={false} style={tw`  `}>
-            <View style={tw`w-32  shadow-2xl  `}>
+            {/* <View style={tw`w-32  shadow-2xl  `}>
               <View style={tw`h-32`} />{" "}
               <View style={tw` flex-col gap-4`}>
                 {members.map((member, index) => (
@@ -63,18 +63,18 @@ const HabitGrid = () => {
                   </View>
                 ))}
               </View>
-            </View>
+            </View> */}
           </ScrollView>
 
           {/* Right Grid - Habits */}
           <ScrollView showsVerticalScrollIndicator={false}>
-            <View>
+            <View tyle={tw` rounded-tr-xl my-4   `}>
               {/* Habit Header Row */}
-              <View style={tw`flex-row bg-white rounded-tr-xl my-4  `}>
+              <View style={tw`flex-row bg-white rounded-tr-xl  ml-32  `}>
                 {habits.map((habit, index) => (
                   <View
                     key={index}
-                    style={tw`w-24 items-center justify-center px-2 py-2`}
+                    style={tw`w-28   items-center justify-center px-2 py-2`}
                   >
                     <SvgXml xml={IconsMan} />
                     <Text style={tw`text-sm font-bold text-black text-center`}>
@@ -84,42 +84,74 @@ const HabitGrid = () => {
                 ))}
               </View>
 
-              {/* Habit Rows per Member */}
-              <View style={tw` flex-col gap-10 `}>
-                {members.map((_, memberIndex) => (
-                  <View key={memberIndex} style={tw`flex-row `}>
-                    {habits.map((_, habitIndex) => {
-                      const isDone = workDone[memberIndex][habitIndex];
-                      return (
-                        <View
-                          key={habitIndex}
-                          style={tw`w-24 px-2 items-center `}
-                        >
-                          <Pressable
-                            onPress={() => toggleDone(memberIndex, habitIndex)}
-                            style={tw`w-full rounded py-2 items-center justify-center ${
-                              isDone ? "bg-[#1a8b03]" : "bg-blackish"
-                            }`}
-                          >
-                            {isDone ? (
-                              <SvgXml
-                                xml={IconsWorkDone}
-                                width={20}
-                                height={20}
-                              />
-                            ) : (
-                              <Text
-                                style={tw`text-white text-sm font-montserrat-600`}
-                              >
-                                Done
-                              </Text>
-                            )}
-                          </Pressable>
-                        </View>
-                      );
-                    })}
+              <View style={tw`flex-row gap-4`}>
+                {/* Habit Rows per Member */}
+                <View style={tw`w-32  shadow-2xl  `}>
+                  <View style={tw``} />
+                  <View style={tw` flex-col gap-4`}>
+                    {members.map((member, index) => (
+                      <View
+                        key={index}
+                        style={tw`rounded-md px-3  flex-row gap-2 items-center bg-red-600 py-2 ${
+                          index === 0 ? "bg-yellowGreen" : "bg-yellowGreen/80"
+                        }`}
+                      >
+                        <Image
+                          source={require("@/assets/images/app-icons.png")}
+                          style={tw`w-10 h-10 rounded-full border-[1px] bg-[#D9D9D9] `}
+                        />
+                        <Text style={tw`text-blackText font-bold text-sm`}>
+                          {index === 0 ? "You" : member.slice(0, 5)}
+                        </Text>
+                      </View>
+                    ))}
                   </View>
-                ))}
+                </View>
+                <View style={tw` pt-1.5 flex-col gap-9.2 `}>
+                  {members.map((_, memberIndex) => (
+                    <View key={memberIndex} style={tw`flex-row gap-3 `}>
+                      {habits.map((_, habitIndex) => {
+                        const isDone = workDone[memberIndex][habitIndex];
+                        return (
+                          <View
+                            key={habitIndex}
+                            style={tw`w-24 px-1 items-center `}
+                          >
+                            <Pressable
+                              onPress={() =>
+                                toggleDone(memberIndex, habitIndex)
+                              }
+                              style={tw`w-full rounded py-2 items-center justify-center ${
+                                isDone ? "bg-[#1a8b03]" : "bg-blackish"
+                              }`}
+                            >
+                              {isDone ? (
+                                <View style={tw`flex-row gap-1  items-center`}>
+                                  <SvgXml
+                                    xml={IconsWorkDone}
+                                    width={12}
+                                    height={12}
+                                  />
+                                  <Text
+                                    style={tw`text-white text-sm font-montserrat-600`}
+                                  >
+                                    Complete
+                                  </Text>
+                                </View>
+                              ) : (
+                                <Text
+                                  style={tw`text-white text-sm font-montserrat-600`}
+                                >
+                                  Complete
+                                </Text>
+                              )}
+                            </Pressable>
+                          </View>
+                        );
+                      })}
+                    </View>
+                  ))}
+                </View>
               </View>
             </View>
           </ScrollView>

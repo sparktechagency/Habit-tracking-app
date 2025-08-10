@@ -1,4 +1,4 @@
-import { IconsAddedSay } from '@/assets/icons'
+import { IconsAddedSay, IconsDeleted } from '@/assets/icons'
 import NewModal from '@/src/components/ui/NewModal'
 import tw from '@/src/lib/tailwind'
 import React, { useState } from 'react'
@@ -122,14 +122,14 @@ export default function SayOnScreen() {
                                     </Text>
 
                                     <View>
-                                        <View style={tw`flex-row items-center gap-1`}>
+                                        {/* <View style={tw`flex-row items-center gap-1`}>
                                             <Text style={tw`text-blackish font-montserrat-700 text-base`}>
                                                 Morning Run:
                                             </Text>
                                             <Text style={tw`text-xs font-montserrat-300`}>
                                                 Extra dessert
                                             </Text>
-                                        </View>
+                                        </View> */}
                                         <View style={tw`flex-row items-center gap-1`}>
                                             <Text style={tw`text-blackish font-montserrat-700 text-base`}>
                                                 Reason:
@@ -143,12 +143,10 @@ export default function SayOnScreen() {
                                     {
                                         deleted && <View style={tw`flex-row justify-end`}>
                                             <TouchableOpacity
-                                                style={tw`px-3 py-2 bg-neutral-700 rounded`}
+                                                style={tw``}
                                                 onPress={handleDeleted}
                                             >
-                                                <Text style={tw`text-white text-xs font-montserrat-400`}>
-                                                    Delete
-                                                </Text>
+                                                <SvgXml xml={IconsDeleted} />
                                             </TouchableOpacity>
                                         </View>
                                     }

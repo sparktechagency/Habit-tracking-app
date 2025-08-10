@@ -64,7 +64,7 @@ export default function SideBarModal({ visible, onClose }: SideBarModalProps) {
 
             <Animated.View
                 style={[
-                    tw`absolute top-0 right-0 h-full bg-white rounded-l-xl p-6 z-50`,
+                    tw`absolute top-0 right-0 h-96 bg-white rounded-l-xl p-6 z-50`,
                     { width: DRAWER_WIDTH, transform: [{ translateX: slideAnim }] },
                 ]}
             >

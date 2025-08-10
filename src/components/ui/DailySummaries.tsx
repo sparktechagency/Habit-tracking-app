@@ -15,6 +15,9 @@ const DailySummaries = () => {
                 paddingBottom: 20,
             }}
         >
+            <View style={tw` flex-row  pb-3 items-center justify-between `}>
+                <Text style={tw`text-base text-blackText font-montserrat-500`}>Total Points Achieved: 10</Text>
+            </View>
             {[1, 2, 3, 4, 5, 6, 7].map((item) => (
                 <View
                     key={item} // ✅ Always add key in map loop

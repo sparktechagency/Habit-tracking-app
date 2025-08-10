@@ -75,7 +75,7 @@ const ActiveChallenges = () => {
                 ))}
 
                 <JoinChallengeModal modalVisible={modalVisible} setModalVisible={() => setModalVisible(!modalVisible)} />
-                <ConModal visible={visible} onClose={() => setVisible(!visible)} />
+                <ConModal prors='ativeChallange' visible={visible} onClose={() => setVisible(!visible)} />
 
             </ScrollView>
         </View>

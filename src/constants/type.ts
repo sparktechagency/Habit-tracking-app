@@ -46,6 +46,7 @@ export type AddSayHabitModalProps = {
 export type RedeemModalProps = {
   viewModal: boolean;
   setViewModal: (viewModal: boolean) => void;
+  props: string;
 };
 
 export type MiniTopProps = {
@@ -72,4 +73,9 @@ export type NewModalProps = {
   onClose: () => void;
   // onSave: (habit: Habit) => void;
   // addHeading?: string;
+};
+export type NewModalPropsCon = {
+  visible: boolean;
+  onClose: () => void;
+  prors: string;
 };
