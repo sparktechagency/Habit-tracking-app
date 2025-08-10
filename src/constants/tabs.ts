@@ -19,9 +19,5 @@ export const LogProgressTab: Tab[] = [
 ];
 
 export const habits: HabitProps[] = [
-  { id: 5, name: "Favourite", count: "3 times" },
-  { id: 1, name: "Practice", count: "1 times" },
-  { id: 2, name: "Relationships", count: "1 times" },
-  { id: 3, name: "Meditation", count: "2 times" },
-  { id: 4, name: "Learning", count: "3 times" },
+  { id: 5, name: "All Habit", count: "3 times" },
 ];

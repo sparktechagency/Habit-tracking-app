@@ -1,4 +1,4 @@
-import { IconsRightArrowBlack, ImageThree } from '@/assets/icons'
+import { IconsLeftArrowBlack, IconsRightArrowBlack, ImageThree } from '@/assets/icons'
 import Wrapper from '@/src/components/Wrapper'
 import tw from '@/src/lib/tailwind'
 import { router } from 'expo-router'
@@ -15,6 +15,12 @@ export default function SplashScreenThree() {
             <View style={tw`flex-1`}>
                 <Wrapper>
                     <View style={tw`flex-1 flex-col justify-around items-center p-[4%]`}>
+                        {/* ----------------- back botton------------------------- */}
+                        <View style={tw` absolute  top-14 left-0 `}>
+                            <TouchableOpacity style={tw` `} onPress={() => router.back()} >
+                                <SvgXml xml={IconsLeftArrowBlack} />
+                            </TouchableOpacity>
+                        </View>
                         <View>
                             <SvgXml xml={ImageThree} />
                         </View>

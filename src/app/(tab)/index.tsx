@@ -1,4 +1,4 @@
-import { IconsArchived, IconsDeleted, IconsFaqDownArrow, IconsFaqTopArrow, IconsSquer, IconsStaerActive, IconsStarBalck, IconsStart, IconsWhiteStar } from '@/assets/icons';
+import { IconsArchived, IconsDeleted, IconsFaqDownArrow, IconsFaqTopArrow, IconsSquer, IconsStart, IconsWhiteStar } from '@/assets/icons';
 import HabitTracker from '@/src/components/ui/HabitTracker';
 import NewAddedModal from '@/src/components/ui/NewAddedModal';
 import { habits } from '@/src/constants/tabs';
@@ -187,10 +187,10 @@ export default function HabitsScreen() {
                                     {[1, 2, 3].map((subItem) => (
                                         <View key={`subitem-${item.id}-${subItem}`} style={tw`p-4 border-b border-gray/60`}>
                                             <View style={tw`flex-row justify-between items-center`}>
-                                                <View style={tw`flex-row gap-3 items-center`}>
-                                                    {/* <View style={tw`bg-gray/50 p-1 rounded`}>
-                                                        <SvgXml xml={IconsSquer} width={20} height={20} />
-                                                    </View> */}
+                                                <View style={tw`flex-row gap-5 items-center`}>
+                                                    <View style={tw`bg-gray/50 p-1 rounded`}>
+                                                        <SvgXml xml={IconsSquer} width={25} height={25} />
+                                                    </View>
                                                     <View style={tw`gap-1.5`}>
                                                         <Text style={tw`text-base`}>Complete todo list</Text>
                                                         <View style={tw`flex-row gap-1 items-center`}>
@@ -198,10 +198,10 @@ export default function HabitsScreen() {
                                                             <Text style={tw`text-gray-500 text-sm`}>1 item</Text>
                                                         </View>
                                                         {
-                                                            item.name !== 'Favourite' && deleted && (
+                                                            !deleted && (
                                                                 <Pressable
                                                                     onPress={handleArchived}
-                                                                    style={tw`border-blackish border-[1px]  items-center px-2 py-1 rounded`}
+                                                                    style={tw`border-blackish border-[1px] w-[65%]  items-center px-2 py-1 rounded`}
                                                                     accessibilityLabel="Mark done"
                                                                 >
                                                                     <Text style={tw`text-blackText text-sm font-montserrat-600`}>Archived</Text>
@@ -214,18 +214,6 @@ export default function HabitsScreen() {
 
                                                 {item.name !== 'Favourite' ? (
                                                     <View style={tw`flex-row items-center gap-3`}>
-                                                        {
-                                                            !deleted && <Pressable
-                                                                onPress={handleFavourite}
-                                                                accessibilityLabel={favourite ? "Remove favorite" : "Add favorite"}
-                                                            >
-                                                                <SvgXml
-                                                                    xml={favourite ? IconsStaerActive : IconsStarBalck}
-                                                                    width={20}
-                                                                    height={20}
-                                                                />
-                                                            </Pressable>
-                                                        }
 
                                                         {deleted ? (
                                                             <Pressable onPress={handleDeleted} accessibilityLabel="Delete">

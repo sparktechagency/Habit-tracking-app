@@ -25,7 +25,7 @@ export default function Home() {
       setTimeout(() => {
         SplashScreen.hideAsync();
         // router?.replace('/(splash-screen)');
-        router?.replace('/(tab)/profile');
+        router?.replace('/(tab)');
       }, 800);
     } catch (e) {
       console.warn('Font loading failed:', e);

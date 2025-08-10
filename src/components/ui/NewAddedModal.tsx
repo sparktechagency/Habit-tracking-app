@@ -12,7 +12,7 @@ const NewAddedModal = ({ visible, onClose }: NewModalProps) => {
                 <View style={tw`bg-white shadow-2xl rounded-lg p-6 w-80`}>
                     {/* Header */}
                     <View style={tw`flex-row justify-between items-center mb-4`}>
-                        <Text style={tw`text-xl  font-montserrat-700`}>Add New Habit</Text>
+                        <Text style={tw`text-xl  font-montserrat-700`}>Create New Habit</Text>
                         <Pressable onPress={onClose}>
                             <SvgXml xml={IconsClose} />
                         </Pressable>
