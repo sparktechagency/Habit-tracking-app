@@ -22,7 +22,7 @@ const MoodTrackingGraph = () => {
                     Daily Habit Track
                 </Text>
                 <Text style={tw`text-sm font-montserrat-600 text-blackText mb-4 text-center`}>
-                    Your mood patterns over the last week
+                    Your mood patterns over the this week
                 </Text>
             </View>
 

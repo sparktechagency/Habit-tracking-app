@@ -1,4 +1,4 @@
-import { IconsArchived, IconsFaqDownArrow, IconsFaqTopArrow, IconsSquer, IconsStart, IconsWhiteStar } from '@/assets/icons'
+import { IconsArchived, IconsFaqDownArrow, IconsFaqTopArrow, IconsStart, IconsWhiteStar } from '@/assets/icons'
 import tw from '@/src/lib/tailwind'
 import React, { useState } from 'react'
 import { Alert, LayoutAnimation, Pressable, ScrollView, Text, View } from 'react-native'
@@ -6,7 +6,7 @@ import { SvgXml } from 'react-native-svg'
 
 export default function Archived() {
     const habits = [
-        { id: 1, name: 'Practice', count: '1 times' },
+        { id: 1, name: 'Archived Habits', count: '1 times' },
 
     ];
 
@@ -57,9 +57,9 @@ export default function Archived() {
                                 style={tw`border-l-4 border-gray flex-row justify-between items-center bg-white shadow-md p-4 rounded-lg`}
                             >
                                 <View style={tw`flex-row gap-2 items-center`}>
-                                    <View style={tw`bg-gray/50 p-1 rounded`}>
+                                    {/* <View style={tw`bg-gray/50 p-1 rounded`}>
                                         <SvgXml xml={IconsSquer} />
-                                    </View>
+                                    </View> */}
                                     <View style={tw`bg-yellowGreen p-2 rounded-full`}>
                                         <SvgXml xml={IconsWhiteStar} />
                                     </View>
@@ -74,9 +74,9 @@ export default function Archived() {
                                         <View key={subItem} style={tw`p-4 border-gray/60 border-b-[1px]`}>
                                             <View style={tw`flex-row justify-between items-center`}>
                                                 <View style={tw`flex-row gap-3 items-center mb-2`}>
-                                                    <View style={tw`bg-gray/50 p-1 rounded`}>
+                                                    {/* <View style={tw`bg-gray/50 p-1 rounded`}>
                                                         <SvgXml xml={IconsSquer} />
-                                                    </View>
+                                                    </View> */}
                                                     <View style={tw`flex-col gap-1`}>
                                                         <Text style={tw`text-base`}>Complete todo list</Text>
                                                         <View style={tw`flex-row gap-1`}>

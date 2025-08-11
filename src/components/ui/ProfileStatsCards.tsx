@@ -7,22 +7,22 @@ const ProfileStatsCards = () => {
         <View>
             <View style={tw`flex-row gap-4  justify-around   `}>
                 <View style={tw`flex-col gap-5  justify-around  `} >
-                    <View style={tw`bg-[#FCFCFC] p-8 border-b-4 border-[#d9d9d9] shadow-md rounded-xl gap-2`}>
+                    <View style={tw`bg-[#FCFCFC] p-8 border-b-4 h-40 w-40 items-center justify-center border-[#d9d9d9] shadow-md rounded-xl gap-2`}>
                         <Text style={tw` text-blackish text-xl font-montserrat-600 text-center`}>3</Text>
-                        <Text style={tw` text-blackish text-base font-montserrat-500 text-center`}>{`Completed\nChallenges`}</Text>
+                        <Text style={tw` text-blackish text-base font-montserrat-500 text-center`}>{`Total Habits`}</Text>
                     </View>
-                    <View style={tw` bg-[#FCFCFC] p-8 border-b-4 border-[#d9d9d9] shadow-md rounded-xl gap-2`}>
+                    <View style={tw` bg-[#FCFCFC] p-8 border-b-4 h-40 w-40 items-center justify-center border-[#d9d9d9] shadow-md rounded-xl gap-2`}>
                         <Text style={tw` text-blackish text-xl font-montserrat-600 text-center`}>10</Text>
-                        <Text style={tw` text-blackish text-base font-montserrat-500 text-center`}>Completed</Text>
+                        <Text style={tw` text-blackish text-base font-montserrat-500 text-center`}>Completed Challenges</Text>
                     </View>
 
                 </View>
                 <View style={tw`flex-col gap-5  justify-around  `}>
-                    <View style={tw`bg-[#FCFCFC] p-8 border-b-4 border-[#d9d9d9] shadow-md rounded-xl gap-2`}>
+                    <View style={tw`bg-[#FCFCFC] p-8 border-b-4 h-40 w-40 items-center justify-center border-[#d9d9d9] shadow-md rounded-xl gap-2`}>
                         <Text style={tw` text-blackish text-xl font-montserrat-600 text-center`}>7</Text>
-                        <Text style={tw` text-blackish text-base font-montserrat-500 text-center`}>{'Longest\nStreaking'}</Text>
+                        <Text style={tw` text-blackish text-base font-montserrat-500 text-center`}>{'Longest Streaking'}</Text>
                     </View>
-                    <View style={tw` bg-[#FCFCFC] p-8 border-b-4 border-[#d9d9d9] shadow-md rounded-xl gap-2   `}>
+                    <View style={tw` bg-[#FCFCFC] p-8 border-b-4  h-40 w-40 items-center justify-center border-[#d9d9d9] shadow-md rounded-xl gap-2   `}>
                         <Text style={tw` text-blackish text-xl font-montserrat-600 text-center`}>3</Text>
                         <Text style={tw` text-blackish text-base font-montserrat-500 text-center`}>Say No</Text>
                     </View>

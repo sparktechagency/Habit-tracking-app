@@ -22,13 +22,12 @@ const NewAddedModal = ({ visible, onClose }: NewModalProps) => {
                     {/* Form fields */}
                     <View style={tw`mb-4`}>
                         <View style={tw`mt-4`}>
-                            {/* <Text style={tw`text-blackish mb-2 font-semibold`}>Select a Date</Text> */}
-
+                            <Text style={tw`text-blackish mb-2 font-semibold`}>Name a Habit</Text>
                             <Pressable onPress={onClose}>
                                 <TextInput
                                     style={tw`border-[1px] border-blackish rounded px-3 py-2 `}
                                     placeholder="Enter habit name"
-                                    editable={false} // prevent manual typing
+                                    // editable={false} // prevent manual typing
                                     pointerEvents="none"
                                     placeholderTextColor={'#000'}
                                 />

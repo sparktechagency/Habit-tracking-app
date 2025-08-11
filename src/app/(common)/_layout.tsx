@@ -7,6 +7,9 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context'
 export default function ProfileRootLayout() {
     const { bottom } = useSafeAreaInsets()
 
+    console.log(bottom);
+
+
     return (
         <View style={{ flex: 1, paddingBottom: bottom }}>
             {/* --------------- heading top ---------------- */}

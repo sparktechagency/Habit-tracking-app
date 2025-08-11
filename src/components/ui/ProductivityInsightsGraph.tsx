@@ -23,10 +23,10 @@ const ProductivityInsightsGraph = () => {
         <View style={tw``}>
             <View>
                 <Text style={tw`text-lg  font-montserrat-700 text-blackText mb-2 text-center`}>
-                    Productivity Insights
+                    Say No
                 </Text>
                 <Text style={tw`text-sm font-montserrat-600 text-blackText mb-4 text-center`}>
-                    Your most productive times this yearly
+                    Your most say no times this yearly
                 </Text>
             </View>
             <BarChart

@@ -32,7 +32,7 @@ const SearchHabite = ({ title, addHeading }: AddGroupProps) => {
             </View>
 
             {/* Search Bar */}
-            <View style={tw`p`}>
+            <View style={tw``}>
                 <TextInput
                     style={tw`
                         py-3 px-4 font-montserrat-600 border-[1px] border-[rgba(165,165,165,0.5)]

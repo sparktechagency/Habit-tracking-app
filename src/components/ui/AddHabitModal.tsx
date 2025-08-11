@@ -83,6 +83,7 @@ const AddHabitModal = ({ visible, onClose, addHeading }: AddHabitModalProps) => 
               style={tw`border-gray border-[1px] p-3 rounded-lg mb-5`}
               accessibilityLabel="Challenge name input"
             />
+            <Text style={tw`text-sm font-montserrat-600 mb-4`}>Challenge Type</Text>
             <View style={tw`border border-blackish/40 rounded`}>
               <Picker
               >

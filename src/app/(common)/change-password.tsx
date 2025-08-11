@@ -206,7 +206,7 @@ export default function ChangePasswordScreen() {
                                             </View>
 
                                             {/* Submit Button */}
-                                            <View style={tw``}>
+                                            <View style={tw`pb-8`}>
                                                 <TouchableOpacity
                                                     onPress={() =>
                                                         router.push('/(tab)/profile')

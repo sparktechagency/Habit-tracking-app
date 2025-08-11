@@ -37,6 +37,34 @@ const SubscriptionCard = () => {
                             <SvgXml xml={IconsCloseRed} />
                             <Text style={tw` text-blackish text-sm font-montserrat-500 `}>Premium rewards</Text>
                         </View>
+                        <View style={tw` flex-row gap-2 `}>
+                            <SvgXml xml={IconsCloseRed} />
+                            <Text style={tw` text-blackish text-sm font-montserrat-500 `}>Priority customer support</Text>
+                        </View>
+                        <View style={tw` flex-row gap-2 `}>
+                            <SvgXml xml={IconsCloseRed} />
+                            <Text style={tw` text-blackish text-sm font-montserrat-500 `}>Customizable habit reminders</Text>
+                        </View>
+                        <View style={tw` flex-row gap-2 `}>
+                            <SvgXml xml={IconsCloseRed} />
+                            <Text style={tw` text-blackish text-sm font-montserrat-500 `}>Sync across multiple devices</Text>
+                        </View>
+                        <View style={tw` flex-row gap-2 `}>
+                            <SvgXml xml={IconsCloseRed} />
+                            <Text style={tw` text-blackish text-sm font-montserrat-500 `}>Detailed progress reports</Text>
+                        </View>
+                        <View style={tw` flex-row gap-2 `}>
+                            <SvgXml xml={IconsCloseRed} />
+                            <Text style={tw` text-blackish text-sm font-montserrat-500 `}>Goal setting with milestones</Text>
+                        </View>
+                        <View style={tw` flex-row gap-2 `}>
+                            <SvgXml xml={IconsCloseRed} />
+                            <Text style={tw` text-blackish text-sm font-montserrat-500 `}>Access to exclusive community</Text>
+                        </View>
+                        <View style={tw` flex-row gap-2 `}>
+                            <SvgXml xml={IconsCloseRed} />
+                            <Text style={tw` text-blackish text-sm font-montserrat-500 `}>Unlimited point access</Text>
+                        </View>
                     </View>
                     <TouchableOpacity style={tw`bg-blackish py-2 rounded items-center`}>
                         <Text style={tw`text-white  font-montserrat-600`}>Ongoing</Text>
@@ -72,6 +100,34 @@ const SubscriptionCard = () => {
                         <View style={tw` flex-row gap-2 `}>
                             <SvgXml xml={IconsTickGreen} />
                             <Text style={tw` text-blackish text-sm font-montserrat-500 `}>Premium rewards</Text>
+                        </View>
+                        <View style={tw` flex-row gap-2 `}>
+                            <SvgXml xml={IconsTickGreen} />
+                            <Text style={tw` text-blackish text-sm font-montserrat-500 `}>Priority customer support</Text>
+                        </View>
+                        <View style={tw` flex-row gap-2 `}>
+                            <SvgXml xml={IconsTickGreen} />
+                            <Text style={tw` text-blackish text-sm font-montserrat-500 `}>Customizable habit reminders</Text>
+                        </View>
+                        <View style={tw` flex-row gap-2 `}>
+                            <SvgXml xml={IconsTickGreen} />
+                            <Text style={tw` text-blackish text-sm font-montserrat-500 `}>Sync across multiple devices</Text>
+                        </View>
+                        <View style={tw` flex-row gap-2 `}>
+                            <SvgXml xml={IconsTickGreen} />
+                            <Text style={tw` text-blackish text-sm font-montserrat-500 `}>Detailed progress reports</Text>
+                        </View>
+                        <View style={tw` flex-row gap-2 `}>
+                            <SvgXml xml={IconsTickGreen} />
+                            <Text style={tw` text-blackish text-sm font-montserrat-500 `}>Goal setting with milestones</Text>
+                        </View>
+                        <View style={tw` flex-row gap-2 `}>
+                            <SvgXml xml={IconsTickGreen} />
+                            <Text style={tw` text-blackish text-sm font-montserrat-500 `}>Access to exclusive community</Text>
+                        </View>
+                        <View style={tw` flex-row gap-2 `}>
+                            <SvgXml xml={IconsTickGreen} />
+                            <Text style={tw` text-blackish text-sm font-montserrat-500 `}>Unlimited point access</Text>
                         </View>
                     </View>
                     <TouchableOpacity onPress={() => router.push('/payment-procedure')} style={tw`bg-blackish py-2 rounded items-center`}>

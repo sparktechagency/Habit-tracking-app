@@ -130,26 +130,34 @@ export default function SayOnScreen() {
                                                 Extra dessert
                                             </Text>
                                         </View> */}
-                                        <View style={tw`flex-row items-center gap-1`}>
-                                            <Text style={tw`text-blackish font-montserrat-700 text-base`}>
-                                                Reason:
-                                            </Text>
-                                            <Text style={tw`text-xs font-montserrat-300`}>
-                                                Sticking to my health goals
-                                            </Text>
+                                        <View style={tw`flex-row justify-between items-center gap-1`}>
+
+                                            <View style={tw`flex-row items-center gap-1`}>
+                                                <Text style={tw`text-blackish font-montserrat-700 text-base`}>
+                                                    Reason:
+                                                </Text>
+                                                <Text style={tw`text-xs font-montserrat-300`}>
+                                                    Sticking to my health goals
+                                                </Text>
+                                            </View>
+
+                                            <View>
+                                                {
+                                                    deleted && <View style={tw`flex-row justify-end`}>
+                                                        <TouchableOpacity
+                                                            style={tw``}
+                                                            onPress={handleDeleted}
+                                                        >
+                                                            <SvgXml xml={IconsDeleted} />
+                                                        </TouchableOpacity>
+                                                    </View>
+                                                }
+                                            </View>
                                         </View>
+
                                     </View>
 
-                                    {
-                                        deleted && <View style={tw`flex-row justify-end`}>
-                                            <TouchableOpacity
-                                                style={tw``}
-                                                onPress={handleDeleted}
-                                            >
-                                                <SvgXml xml={IconsDeleted} />
-                                            </TouchableOpacity>
-                                        </View>
-                                    }
+
 
 
                                 </View>

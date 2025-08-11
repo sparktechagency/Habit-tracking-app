@@ -3,12 +3,15 @@
 
 import tw from '@/src/lib/tailwind'
 import { router } from 'expo-router'
-import React from 'react'
+import React, { useState } from 'react'
 import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native'
+import ConModal from './ConModal'
 import ProgressBar from './ProgressBar'
 import SharedHabits from './SharedHabits'
 
 const CompletedChallenges = () => {
+    const [visible, setVisible] = useState<boolean>(false)
+    const [onSave, setOnSave] = useState<string>("")
 
     return (
         <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{
@@ -50,10 +53,10 @@ const CompletedChallenges = () => {
                             </View>
                             <View style={tw`  flex-row items-center  gap-2.5`}>
                                 <Text style={tw`text-blackish text-xs font-semibold font-montserrat-600`}>Participants: </Text>
-                                <View style={tw`  flex-row items-center`}>
+                                <TouchableOpacity onPress={() => setVisible(!visible)} style={tw`  flex-row items-center `}>
                                     <Image style={tw`  h-8 w-8 rounded-full border `} source={require('@/assets/images/splash-icon.png')} />
                                     <Image style={tw`  h-8 w-8 rounded-full -ml-2 border `} source={require('@/assets/images/splash-icon.png')} />
-                                </View>
+                                </TouchableOpacity>
                             </View>
                             <View style={tw`flex-row items-center justify-between`}>
                                 <TouchableOpacity onPress={() => router?.push('/view-details/view-details-log-progress')} style={tw` px-2.4 py-2  border rounded-lg flex-row justify-center items-center gap-2.5`}>
@@ -67,6 +70,7 @@ const CompletedChallenges = () => {
                     </View>
                 </View>
             ))}
+            <ConModal prors='ativeChallange' visible={visible} onClose={() => setVisible(!visible)} />
 
 
         </ScrollView>

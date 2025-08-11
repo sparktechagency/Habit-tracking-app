@@ -7,7 +7,7 @@ const RedeemHistory = () => {
     const [viewModal, setViewModal] = React.useState<boolean>(false);
 
     return (
-        <View style={tw`p-[4%]`}>
+        <View style={tw`px-[4%]`}>
             <View>
                 <ScrollView showsVerticalScrollIndicator={false} >
                     <View>

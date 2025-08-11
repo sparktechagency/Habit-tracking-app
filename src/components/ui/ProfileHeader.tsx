@@ -17,7 +17,7 @@ const ProfileHeader = () => {
     const menuItems = [
         { icon: IconsProfile, label: "My Profile", route: "/(common)" },
         { icon: IconsChangePassword, label: "Change Password", route: "/(common)/change-password" },
-        { icon: IconsNotification, label: "Notification", route: "/(common)/notification" },
+        { icon: IconsNotification, label: "Notification", route: "/(common)/notification", badge: 40 },
         { icon: IconsAbout, label: "About Us", route: "/(common)/aboutus" },
         { icon: IconsDataPrivacy, label: "Data Privacy", route: "/(common)/dataprivacy" },
         { icon: IconsTermsConditionsy, label: "Terms & Conditions", route: "/(common)/termsandconditions" },
@@ -56,7 +56,15 @@ const ProfileHeader = () => {
                                 }}
                             >
                                 <View style={tw`flex-row items-cente gap-1r`}>
-                                    <SvgXml xml={item.icon} width={24} height={24} />
+                                    <SvgXml xml={item.icon} width={24} height={24} style={tw`relative`} />
+                                    {item?.badge && (
+                                        <Text
+                                            style={tw`absolute -top-2  -left-2
+                                                 bg-yellowGreen w-6 h-6 rounded-full text-black text-sm text-center leading-6`}
+                                        >
+                                            {item.badge}
+                                        </Text>
+                                    )}
                                     <Text style={tw`text-black text-sm`}>{item.label}</Text>
                                 </View>
                             </TouchableOpacity>
