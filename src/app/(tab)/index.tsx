@@ -274,24 +274,20 @@ import React, { useCallback, useState } from 'react';
 import {
     Alert,
     FlatList,
-    LayoutAnimation,
     Pressable,
     Text,
     TextInput,
     TouchableOpacity,
-    View,
+    View
 } from 'react-native';
-import DraggableFlatList, { ScaleDecorator } from 'react-native-draggable-flatlist';
+import { NestableDraggableFlatList, NestableScrollContainer, ScaleDecorator } from 'react-native-draggable-flatlist';
 import { SvgXml } from 'react-native-svg';
 
 import {
     IconsArchived,
     IconsDeleted,
-    IconsFaqDownArrow,
-    IconsFaqTopArrow,
     IconsSquer,
-    IconsStart,
-    IconsWhiteStar,
+    IconsStart
 } from '@/assets/icons';
 import HabitTracker from '@/src/components/ui/HabitTracker';
 import NewAddedModal from '@/src/components/ui/NewAddedModal';
@@ -300,7 +296,7 @@ import tw from '@/src/lib/tailwind';
 import { router } from 'expo-router';
 
 // Constants
-const NUM_ITEMS = 10;
+const NUM_ITEMS = 5;
 
 const getColor = (index: number) => {
     const multiplier = 255 / (NUM_ITEMS - 1);
@@ -334,10 +330,11 @@ type DraggableItemProps = {
     deleted: boolean;
     onDelete: () => void;
     onArchive: () => void;
+    handleDone: () => void;
+
 };
 
 const DraggableItem: React.FC<DraggableItemProps> = ({
-    item,
     drag,
     isActive,
     deleted,
@@ -409,15 +406,10 @@ type HabitItem = {
 };
 
 export default function HabitsScreen() {
-    const [expandedAccordion, setExpandedAccordion] = useState<number | null>(null);
     const [isEditing, setIsEditing] = useState(false);
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [data, setData] = useState<Item[]>(generateInitialData);
 
-    const toggleAccordion = useCallback((id: number) => {
-        LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
-        setExpandedAccordion((prev) => (prev === id ? null : id));
-    }, []);
 
     const handleDelete = useCallback(() => {
         Alert.alert('Delete Entry', 'Are you sure you want to delete this entry?', [
@@ -457,33 +449,10 @@ export default function HabitsScreen() {
 
     const renderHabitItem = ({ item }: { item: HabitItem }) => (
         <View style={tw`mb-6 px-4`}>
-            <Pressable
-                onPress={() => toggleAccordion(item.id)}
-                style={tw`border-l-4 border-gray flex-row justify-between items-center bg-white shadow-md p-4 rounded-lg`}
-                accessibilityLabel={`${item.name} habit`}
-                accessibilityRole="button"
-            >
-                <View style={tw`flex-row gap-2 items-center`}>
-                    <View style={tw`bg-gray/50 p-1 rounded`}>
-                        <SvgXml xml={IconsSquer} width={20} height={20} />
-                    </View>
-                    <View style={tw`bg-yellowGreen p-2 rounded-full`}>
-                        <SvgXml xml={IconsWhiteStar} width={16} height={16} />
-                    </View>
-                    <Text style={tw`text-lg font-montserrat-600`}>{item.name}</Text>
-                </View>
-                <SvgXml
-                    xml={expandedAccordion === item.id ? IconsFaqTopArrow : IconsFaqDownArrow}
-                    width={16}
-                    height={16}
-                />
 
-
-            </Pressable>
-
-            {expandedAccordion === item.id && (
+            {(
                 <View style={tw`bg-primaryBg border border-gray rounded-lg mt-2 overflow-hidden`}>
-                    <DraggableFlatList
+                    <NestableDraggableFlatList
                         data={data}
                         onDragEnd={({ data }) => setData(data)}
                         keyExtractor={(item) => item.key}
@@ -498,7 +467,6 @@ export default function HabitsScreen() {
                                 handleDone={handleDone}
                             />
                         )}
-                        activationDistance={20} // Better UX for drag activation
                     />
                     {isEditing && (
                         <Pressable
@@ -521,62 +489,65 @@ export default function HabitsScreen() {
     );
 
     return (
-        <View style={tw`flex-1 bg-primaryBg`}>
-            <View style={tw`p-4 flex-col gap-4`}>
-                <View style={tw`flex-row items-center justify-between`}>
-                    <Text style={tw`text-blackish font-montserrat-600 text-xl`}>My Habits</Text>
+        <NestableScrollContainer>
+            <View style={tw`flex-1 bg-primaryBg`}>
+                <View style={tw`p-4 flex-col gap-4`}>
+                    <View style={tw`flex-row items-center justify-between`}>
+                        <Text style={tw`text-blackish font-montserrat-600 text-xl`}>My Habits</Text>
+                        <TouchableOpacity
+                            style={tw`px-2 py-2 bg-blackText rounded flex-row items-center gap-2.5`}
+                            onPress={toggleEditMode}
+                            accessibilityLabel={isEditing ? 'Done editing' : 'Edit habits'}
+                        >
+                            <Text style={tw`text-white text-xs font-montserrat-400`}>{isEditing ? 'Done' : 'Edit'}</Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+                <View style={tw`bg-yellowGreen/20 py-2 pl-4 `}>
+                    <Text style={tw` items-center text-sm text-gray font-montserrat-500`}>
+                        the <SvgXml xml={IconsSquer} width={10} height={10} /> icon to reorder. Touch elsewhere to scroll.</Text>
+                </View>
+                <View style={tw`p-4 flex-col gap-4`}>
+
+                    <TextInput
+                        style={tw`py-3 px-4 font-montserrat-600 border border-gray rounded-full text-blackish`}
+                        placeholder="Search habits"
+                        placeholderTextColor="#3e3e3f80"
+                        returnKeyType="search"
+                        clearButtonMode="while-editing"
+                        accessibilityLabel="Search habits"
+                    />
+
                     <TouchableOpacity
-                        style={tw`px-2 py-2 bg-blackText rounded flex-row items-center gap-2.5`}
-                        onPress={toggleEditMode}
-                        accessibilityLabel={isEditing ? 'Done editing' : 'Edit habits'}
+                        onPress={() => router.push('/archived')}
+                        style={tw`flex-row items-center gap-2`}
+                        accessibilityLabel="View archived habits"
                     >
-                        <Text style={tw`text-white text-xs font-montserrat-400`}>{isEditing ? 'Done' : 'Edit'}</Text>
+                        <SvgXml xml={IconsArchived} />
+                        <Text style={tw`text-sm font-montserrat-600`}>Archived</Text>
                     </TouchableOpacity>
                 </View>
-            </View>
-            <View style={tw`bg-yellowGreen/20 py-2 pl-4 `}>
-                <Text style={tw` items-center text-sm text-gray font-montserrat-500`}>
-                    the <SvgXml xml={IconsSquer} width={10} height={10} /> icon to reorder. Touch elsewhere to scroll.</Text>
-            </View>
-            <View style={tw`p-4 flex-col gap-4`}>
 
-                <TextInput
-                    style={tw`py-3 px-4 font-montserrat-600 border border-gray rounded-full text-blackish`}
-                    placeholder="Search habits"
-                    placeholderTextColor="#3e3e3f80"
-                    returnKeyType="search"
-                    clearButtonMode="while-editing"
-                    accessibilityLabel="Search habits"
-                />
+                <View style={tw`border-b border-gray/50`}>
+                    <Text style={tw`px-4 text-sm font-montserrat-600 mb-3`}>All Habits</Text>
+                </View>
 
-                <TouchableOpacity
-                    onPress={() => router.push('/archived')}
-                    style={tw`flex-row items-center gap-2`}
-                    accessibilityLabel="View archived habits"
-                >
-                    <SvgXml xml={IconsArchived} />
-                    <Text style={tw`text-sm font-montserrat-600`}>Archived</Text>
-                </TouchableOpacity>
+                <View style={tw` pt-4 flex-1`}>
+                    <FlatList
+                        data={habits}
+                        renderItem={renderHabitItem}
+                        keyExtractor={(item) => item.id.toString()}
+                        ListFooterComponent={<HabitTracker />}
+                        ListFooterComponentStyle={tw`p-4`}
+                        showsVerticalScrollIndicator={false}
+                        contentContainerStyle={tw`pb-8`}
+                        nestedScrollEnabled={false}
+                    />
+                </View>
+
+                <NewAddedModal visible={isModalVisible} onClose={() => setIsModalVisible(false)} />
             </View>
-
-            <View style={tw`border-b border-gray/50`}>
-                <Text style={tw`px-4 text-sm font-montserrat-600 mb-3`}>All Habits</Text>
-            </View>
-
-            <View style={tw` pt-4 flex-1`}>
-                <FlatList
-                    data={habits}
-                    renderItem={renderHabitItem}
-                    keyExtractor={(item) => item.id.toString()}
-                    ListFooterComponent={<HabitTracker />}
-                    ListFooterComponentStyle={tw`p-4`}
-                    showsVerticalScrollIndicator={false}
-                    contentContainerStyle={tw`pb-8`}
-                />
-            </View>
-
-            <NewAddedModal visible={isModalVisible} onClose={() => setIsModalVisible(false)} />
-        </View>
+        </NestableScrollContainer>
     );
 }
 

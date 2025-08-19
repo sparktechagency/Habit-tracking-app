@@ -15,7 +15,7 @@ const SearchHabite = ({ title, addHeading }: AddGroupProps) => {
 
 
     return (
-        <View style={tw` flex-col gap-3  px-[4%] pt-[3%]`}>
+        <View style={tw` flex-col gap-3 pb-2 px-[4%] pt-[3%]`}>
             {/* Header Section */}
             <View style={tw``}>
                 <View style={tw`flex-row items-center justify-between `}>

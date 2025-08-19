@@ -80,12 +80,11 @@ const NewModal = ({ visible, onClose }: NewModalProps) => {
 
 
                     <View style={tw`mb-6`}>
-                        <Text style={tw`mb-1 text-sm  font-montserrat-600`}>Why did you say no?</Text>
+                        <Text style={tw`mb-1 text-sm  font-montserrat-600`}>What did you say no to?</Text>
                         <TextInput
                             style={tw`border-[1px]  border-blackish rounded px-3 py-2`}
                             value={participants}
                             onChangeText={setParticipants}
-                            placeholder="Why did you say no?"
                             keyboardType="numeric"
                             placeholderTextColor={'#000'}
                         />

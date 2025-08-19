@@ -3,11 +3,6 @@ export type Tab = {
   label: string;
 };
 
-export type ProgressProps = {
-  color: any;
-  progress: number;
-  height?: number;
-};
 export type AddGroupProps = {
   title: string;
   addHeading?: string;

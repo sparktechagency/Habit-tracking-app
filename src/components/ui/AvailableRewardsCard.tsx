@@ -25,7 +25,7 @@ const AvailableRewardsCard = () => {
               <View style={tw`flex-col gap-3  flex-1`}>
                 <View style={tw`flex-col  justify-between gap-1`}>
                   <Text style={tw`text-blackish font-montserrat-700 text-base  `}>Coffee Discount </Text>
-                  <Text style={tw`text-blackish font-montserrat-600 text-xs  `}>Get 20% off your next coffee at Brew Haven </Text>
+                  <Text style={tw`text-blackish font-montserrat-600 text-xs  `}>Get 20% off your next coffee at Brew Haven <Text style={tw`text-red-400 font-montserrat-600 text-xs  `}>“Offer ending in 10 days” </Text> </Text>
                   <Text style={tw`text-[#ff8c00] font-montserrat-700 text-base  `}>50 points</Text>
                 </View>
                 <TouchableOpacity onPress={() => setViewModal(!viewModal)} style={tw` px-2.4 rounded-full  py-2 bg-neutral-700 flex-row justify-center items-center gap-2.5`}>

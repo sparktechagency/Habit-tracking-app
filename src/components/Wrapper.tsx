@@ -1,10 +1,8 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const Wrapper = ({ children }: { children: React.ReactNode }) => {
 
-    const { bottom } = useSafeAreaInsets();
 
     return (
         <View
