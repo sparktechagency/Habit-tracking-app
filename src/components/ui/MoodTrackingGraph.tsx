@@ -1,41 +1,41 @@
-import tw from '@/src/lib/tailwind';
-import React from 'react';
-import { Text, View } from 'react-native';
-import { LineChart } from 'react-native-gifted-charts';
+import React from "react";
+import { Text, View } from "react-native";
+import { LineChart } from "react-native-gifted-charts";
+import tw from "twrnc";
 
 const MoodTrackingGraph = () => {
-    const data = [
-        { value: 20, label: 'Sat' },
-        { value: 25, label: 'Sun' },
-        { value: 40, label: 'Mon' },
-        { value: 80, label: 'Tue' },
-        { value: 60, label: 'Wed' },
-        { value: 30, label: 'Thu' },
-        { value: 50, label: 'Fri' },
+    const months = [
+        "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
     ];
 
+    const data = months.map((month) => ({
+        value: Math.floor(Math.random() * 70),
+        label: month,
+    }));
+
     return (
-        <View style={tw` `}>
+        <View>
             {/* Title and Subtitle */}
             <View>
                 <Text style={tw`text-lg font-montserrat-700 text-blackText mb-2 text-center`}>
-                    Daily Habit Track
+                    Monthly Mood Track
                 </Text>
-                <Text style={tw`text-sm font-montserrat-600 text-blackText mb-4 text-center`}>
-                    Your mood patterns over the this week
-                </Text>
+                {/* <Text style={tw`text-sm font-montserrat-600 text-blackText mb-4 text-center`}>
+                    Your mood patterns over the year
+                </Text> */}
             </View>
 
-            {/* Chart Container */}
-            <View style={tw` py-5`}>
+            {/* Chart */}
+            <View style={tw`py-5`}>
                 <LineChart
                     data={data}
                     height={200}
-                    width={300}
+                    width={350}
                     yAxisLabelPrefix=""
                     yAxisLabelSuffix=""
-                    xAxisLabelTextStyle={{ color: '#000', fontSize: 12, fontWeight: '600' }}
-                    yAxisTextStyle={{ color: '#000', fontSize: 12, fontWeight: '600' }}
+                    xAxisLabelTextStyle={{ color: "#000", fontSize: 12, fontWeight: "600" }}
+                    yAxisTextStyle={{ color: "#000", fontSize: 12, fontWeight: "600" }}
                     color="#1E90FF"
                     thickness={3}
                     yAxisRange={{ min: 0, max: 100, step: 20 }}
@@ -48,24 +48,16 @@ const MoodTrackingGraph = () => {
                     noOfSections={5}
                     maxValue={100}
                     initialSpacing={20}
-                    spacing={40}
+                    spacing={30}
                     endSpacing={10}
                     renderTooltip={(item: any) => (
                         <View style={tw`bg-[#1E90FF] px-2 py-1 rounded-md`}>
-                            <Text style={tw`text-white text-xs font-semibold`}>{item.value}% mood</Text>
+                            <Text style={tw`text-white text-xs font-semibold`}>
+                                {item.label}: {item.value}%
+                            </Text>
                         </View>
                     )}
                 />
-            </View>
-
-            {/* Legend */}
-            <View style={tw`flex-row justify-center mt-4`}>
-                <View style={tw`flex-row items-center mr-6`}>
-                    <View style={tw`w-3 h-3 bg-[#1E90FF] rounded-full mr-2`} />
-                    <Text style={tw`text-xs text-gray-600`}>Mood Trend</Text>
-                </View>
-                {/* You had "Daily Points" in legend but no data for it in chart — 
-            keep or remove depending on your needs */}
             </View>
         </View>
     );

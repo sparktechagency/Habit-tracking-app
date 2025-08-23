@@ -129,29 +129,21 @@ import { LineChart } from "react-native-gifted-charts";
 const HabitCompletionRateGraph = () => {
     const now = new Date();
     const year = now.getFullYear();
-    const month = now.getMonth(); // 0 = Jan
-    const monthName = now.toLocaleString("default", { month: "short" });
-    const daysInMonth = new Date(year, month + 1, 0).getDate();
 
-    // Example fixed values for the month — can be shorter or longer as needed
-    // Fill rest with 0 if less than daysInMonth
-    const exampleValues = [
-        10, 30, 40, 25, 15, 60, 70, 55, 45, 20, 35, 50, 65, 80, 75, 85, 90, 60, 40, 30,
-    ];
+    const months = Array.from({ length: 12 }, (_, i) =>
+        new Date(year, i).toLocaleString("default", { month: "short" })
+    );
 
-    // Pad with zeros if exampleValues length < daysInMonth
-    const values = Array.from({ length: daysInMonth }, (_, i) => {
-        return exampleValues[i] !== undefined ? exampleValues[i] : 0;
-    });
+    const exampleValues = [20, 60, 75, 50, 80, 70, 65, 90, 55, 40, 85, 95];
 
     const data = useMemo(() => {
-        return values.map((value, i) => {
-            const day = i + 1;
+        return months.map((month, i) => {
+            const value = exampleValues[i] ?? 0;
             return {
                 value,
                 labelComponent: () => (
                     <Text style={{ color: "gray", fontSize: 10, marginLeft: 2 }}>
-                        {day}
+                        {month}
                     </Text>
                 ),
                 dataPointLabelComponent: () => (
@@ -161,21 +153,23 @@ const HabitCompletionRateGraph = () => {
                 ),
             };
         });
-    }, [values]);
+    }, [months]);
 
     return (
         <View style={{ backgroundColor: "#fff", paddingVertical: 10 }}>
             <View>
-                <Text style={tw`text-lg font-montserrat-700 text-blackText mb-2 text-center`}>
-                    Daily Habit Track
+                <Text
+                    style={tw`text-lg font-montserrat-700 text-blackText mb-2 text-center`}
+                >
+                    Monthly Habit Track
                 </Text>
-                <Text style={tw`text-sm font-montserrat-600 text-blackText mb-4 text-center`}>
-                    Your monthly habit tracking for this month
+                <Text
+                    style={tw`text-sm font-montserrat-600 text-blackText mb-4 text-center`}
+                >
+                    Your monthly habit track over the last month
                 </Text>
             </View>
-            <Text style={{ fontSize: 16, fontWeight: "600", marginLeft: 15, marginBottom: 5 }}>
-                {monthName} {year} Habit Completion
-            </Text>
+
             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
                 <LineChart
                     areaChart
@@ -191,11 +185,11 @@ const HabitCompletionRateGraph = () => {
                     xAxisColor="lightgray"
                     yAxisColor="lightgray"
                     backgroundColor="#fff"
-                    spacing={20}
-                    initialSpacing={15}
+                    spacing={40}
+                    initialSpacing={20}
                     rulesColor="lightgray"
                     rulesType="solid"
-                    xAxisLength={daysInMonth * 40}
+                    xAxisLength={months.length * 50}
                     maxValue={100}
                     noOfSections={5}
                     dataPointsHeight={6}
@@ -209,4 +203,6 @@ const HabitCompletionRateGraph = () => {
 };
 
 export default HabitCompletionRateGraph;
+
+
 

@@ -7,8 +7,6 @@ import { SvgXml } from 'react-native-svg'
 
 const RedemptionDetailsModal = ({ setViewModal, viewModal, props }: RedeemModalProps) => {
 
-    console.log(props);
-
 
     return (
         <Modal visible={viewModal} transparent animationType="fade">
@@ -34,6 +32,13 @@ const RedemptionDetailsModal = ({ setViewModal, viewModal, props }: RedeemModalP
                                 <Text style={tw` font-montserrat-700 text-blackish`}>Rewards :</Text  >
                                 <Text style={tw` font-montserrat-600 text-blackish`}>Free Coffee with Purchase</Text>
                             </View>
+                            <View style={tw` flex-row  gap-1`}>
+                                <Text style={tw` font-montserrat-700 text-blackish`}>Customer: </Text  >
+                                <Text style={tw` font-montserrat-600 text-blackish`}>John Doe</Text>
+                            </View>
+
+
+
                             {/* Terms */}
                             {
                                 props === 'user' && <View style={tw` flex-row  gap-1`}>
@@ -57,6 +62,10 @@ const RedemptionDetailsModal = ({ setViewModal, viewModal, props }: RedeemModalP
                             <View style={tw` flex-row  gap-1`}>
                                 <Text style={tw` font-montserrat-700 text-blackish`}>Date :</Text  >
                                 <Text style={tw` font-montserrat-600 text-blackish`}>0/15/2025</Text>
+                            </View>
+                            <View style={tw` flex-row  gap-1`}>
+                                <Text style={tw` font-montserrat-700 text-blackish`}>Code :</Text  >
+                                <Text style={tw` font-montserrat-600 text-blackish`}>C1009329</Text>
                             </View>
 
                             {/* Terms */}

@@ -4,7 +4,7 @@ import tw from '@/src/lib/tailwind'
 import React from 'react'
 import { Text, TouchableOpacity, View } from 'react-native'
 import { SvgXml } from 'react-native-svg'
-import AddSayNoEntryModal from './AddSayNoEntryModal'
+import AddSayNoEntryModalReward from './AddSayNoEntryModalReward'
 
 const MiniTopBar = ({ Heading, setVisible, visible, pageName }: MiniTopProps) => {
 
@@ -26,7 +26,7 @@ const MiniTopBar = ({ Heading, setVisible, visible, pageName }: MiniTopProps) =>
                 </View>
             </View>
             {/* Add Say No Entry Modal */}
-            <AddSayNoEntryModal visible={visible} onClose={() => setVisible(false)} />
+            <AddSayNoEntryModalReward visible={visible} onClose={() => setVisible(false)} />
         </View>
     )
 }

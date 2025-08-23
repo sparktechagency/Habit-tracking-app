@@ -24,8 +24,8 @@ export default function Home() {
       // Small delay for smooth transition
       setTimeout(() => {
         SplashScreen.hideAsync();
-        // router?.replace('/(splash-screen)');
-        router?.replace('/(tab)');
+        router?.replace('/(splash-screen)');
+        // router?.replace('/(tab)');
       }, 800);
     } catch (e) {
       console.warn('Font loading failed:', e);
